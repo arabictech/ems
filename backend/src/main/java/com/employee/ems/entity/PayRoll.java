@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.time.Month;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "payroll")
 public class PayRoll {
 
     // Payroll(payroll_id, emp_id, month, salary, deductions, net_salary)
@@ -17,7 +19,6 @@ public class PayRoll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long payroll_id;
-
     private Month month;
     private double salary;
     private double deduction;

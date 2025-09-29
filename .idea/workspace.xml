@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -40,7 +41,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "radha-updates",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/lenovo/Desktop/ems",
     "node.js.detected.package.eslint": "true",
@@ -89,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759127547744</updated>
-      <workItem from="1759135514659" duration="1600000" />
+      <workItem from="1759135514659" duration="2697000" />
     </task>
     <servers />
   </component>
