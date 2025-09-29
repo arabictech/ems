@@ -1,0 +1,38 @@
+body{
+  background-color: #dfe1e2;
+}
+
+.sidebar{
+  background-color: #4c3575;
+  min-height: 90vh;
+  /* width: 18%; */
+  border-radius: 30px;
+  /* border-radius: 0px 30px 30px 0px; */
+  margin: 30px;
+  padding: 0 12px;
+  /* margin: 12px; */
+}
+
+.main-content{
+  /* border: 5px solid yellow; */
+  width: 72%;
+  margin-left: 25%;
+  padding-top: 7%;
+}
+
+.nav-link{
+  transition: .3s;
+  padding: 5px 0;
+}
+
+.nav-link:hover{
+  background-color: white;
+  color: #4c3575;
+  border-radius: 12px;
+}
+
+.nav-link.active{
+  background-color: white;
+  color: #4c3575;
+  border-radius: 12px;
+}
