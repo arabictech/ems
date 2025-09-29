@@ -12,6 +12,12 @@
         <module name="Ems" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
+=======
+    <bytecodeTargetLevel>
+      <module name="ems" target="21" />
+    </bytecodeTargetLevel>
+>>>>>>> fa52d095795f6c2e06eca09c036cef095fa35605
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
