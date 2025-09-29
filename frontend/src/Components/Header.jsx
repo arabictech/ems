@@ -17,7 +17,7 @@ import Col from 'react-bootstrap/Col';
 function Header() {
   return (
     <>
-      <Container fluid className=' position-fixed '>
+      <Container fluid className='position-fixed'>
         <Row>
           <Col lg={3} md={3} >
            <div className='sidebar text-light shadow '>
