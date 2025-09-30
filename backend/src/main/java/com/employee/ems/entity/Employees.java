@@ -28,7 +28,7 @@ public class Employees {
     private Date join_date;
 
 
-    // ✅ If you want reverse mapping:
+    //If i want reverse mapping:
    //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
    //  private List<Leave> leaves;
 
