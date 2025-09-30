@@ -19,6 +19,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long user_id;
     private String username;
+    private String email;
     private String password;
     private String role;
 
