@@ -14,8 +14,8 @@ body {
   border: 5px solid yellow;
   width: 72%;
   margin-left: 25%;
-  padding-top: 7%;
   position: absolute;
+  top: 12%;
   /* display: flex;
   justify-content: center; */
   

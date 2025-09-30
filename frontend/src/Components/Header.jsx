@@ -13,6 +13,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function Header() {
   return (
@@ -34,8 +36,17 @@ function Header() {
         </div>
           </Col>
           <Col lg={9} className='p-0'>
-                <Navbar expand="lg" className="bg-body-tertiary" style={{margin:'30px',marginLeft:'0px',marginRight:'50px'}}>
+                <Navbar expand="lg" className="bg-body-secondary" style={{margin:'30px',marginLeft:'0px',marginRight:'50px'}}>
                 <Container>
+                  <Form className="d-flex">
+                    <Form.Control
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                    />
+                    <Button variant="outline-success">Search</Button>
+                  </Form>
                   <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
