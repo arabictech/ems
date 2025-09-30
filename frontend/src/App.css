@@ -1,5 +1,5 @@
 body {
-  /* background-color: #dfe1e2; */
+  background-color: white;
 }
 
 .sidebar {
@@ -16,10 +16,6 @@ body {
   margin-left: 25%;
   position: absolute;
   top: 12%;
-  /* display: flex;
-  justify-content: center; */
-  
-  /* z-index: 1000; */
 }
 
 .nav-link {
@@ -41,8 +37,27 @@ body {
 
 .form-container {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   /* margin: 20px 0; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.btn{
+  background-color: #4c3575;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+.Add{
+  color: #4c3575;
+  text-align: center;
+  font-weight: bold;
 }

@@ -8,15 +8,18 @@ const Employee = () => {
     return (
 
         <div className='main-content'>
-            <div className='form-containe'>
+            <div className='form-container '>
 
                 <Form>
-                    <h1 className='my-4'>Add Employee</h1>
+                    <h1 className='Add my-4'>Add Employee</h1>
                     <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridFirstName">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control placeholder="First name" />
                         </Form.Group>
+
+                    </Row>
+                    <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridLastName">
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control placeholder="Last name" />
@@ -57,6 +60,11 @@ const Employee = () => {
                                 <option>Intern</option>
                             </Form.Select>
                         </Form.Group>
+
+
+
+                    </Row>
+                    <Row className='mb-4'>
                         <Form.Group as={Col} controlId="formGrid">
                             <Form.Label>Salary</Form.Label>
                             <Form.Control type="number" placeholder="Salary" />
@@ -65,20 +73,10 @@ const Employee = () => {
                             <Form.Label>Joining Date</Form.Label>
                             <Form.Control type="date" placeholder="Joining Date" />
                         </Form.Group>
-
                     </Row>
 
-
-
-
-
-
-
- 
-
-
-                    <Button variant="primary" type="submit">
-                        Submit
+                    <Button className='btn' variant="primary" type="submit">
+                        Add Employee
                     </Button>
                 </Form>
             </div>
