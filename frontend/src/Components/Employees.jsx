@@ -75,7 +75,7 @@ const Employee = () => {
                         </Form.Group>
                     </Row>
 
-                    <Button className='btn' variant="primary" type="submit">
+                    <Button className='btn1' variant="primary" type="submit">
                         Add Employee
                     </Button>
                 </Form>
