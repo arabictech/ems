@@ -15,8 +15,8 @@ public class PayRollService {
 
     // Create Table And Insert Data In Table
     public PayRoll addPayment(PayRoll payRoll) {
-        double net = payRoll.getSalary() - payRoll.getDeduction();
-        payRoll.setNet_salary(net);
+//        double net = payRoll.getSalary() - payRoll.getDeduction();
+//        payRoll.setNet_salary(net);
         return payrollRepo.save(payRoll);
 
     }
@@ -28,18 +28,18 @@ public class PayRollService {
 
     // Get Data From Table By Using ID
     public PayRoll getPayrollById(long id) {
-        return payrollRepo.findById(id).get();
+        return payrollRepo.findById((int) id).get();
     }
 
     // Update Data In TAble
     public PayRoll updatePayroll(long id, PayRoll payRoll) {
-        double net = payRoll.getSalary() - payRoll.getDeduction();
-        payRoll.setNet_salary(net);
+//        double net = payRoll.getSalary() - payRoll.getDeduction();
+//        payRoll.setNet_salary(net);
         return payrollRepo.save(payRoll);
     }
 
     //Delete Date From Table
     public void deletePayroll(long id) {
-        payrollRepo.deleteById(id);
+        payrollRepo.deleteById((int) id);
     }
 }

@@ -13,9 +13,9 @@ public class AttendanceService {
     @Autowired
     AttendenceRepo attendenceRepo;
 
-//    public Attendance addAttendance(Attendance attendance) {
-//        return attendenceRepo.save(attendance);
-//    }
+    public Attendance addAttendance(Attendance attendance) {
+        return attendenceRepo.save(attendance);
+    }
 
 
 
