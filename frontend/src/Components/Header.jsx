@@ -13,6 +13,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { FaSearch } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
+import { IoMdNotifications } from "react-icons/io";
 
 function Header() {
   return (
@@ -34,20 +39,26 @@ function Header() {
         </div>
           </Col>
           <Col lg={9} className='p-0'>
-                <Navbar expand="lg" className="bg-body-tertiary" style={{margin:'30px',marginLeft:'0px',marginRight:'50px'}}>
-                <Container>
-                  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar expand="lg" className="border" style={{margin:'40px',marginLeft:'0px',marginRight:'50px'}}>
+                <Container fluid className='p-0'>
+                  <Form className="d-flex bg-body-secondary p-1 rounded-3 ps-0">
+                    <Form.Control
+                      type="search"
+                      placeholder='Search'
+                      className="me-2 bg-transparent border-0"
+                      aria-label="Search"
+                    />
+                    <Button variant="" className='fs-5'><FaSearch /></Button>
+                  </Form>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                      <Nav.Link href="#home">Home</Nav.Link>
-                      <Nav.Link href="#link">Link</Nav.Link>
+                    <Nav className="ms-auto fs-3">
+                      <Nav.Link href="#home"><IoMdNotifications /></Nav.Link>
+                      <Nav.Link href="#link"><LuLogOut /></Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
                 </Container>
               </Navbar>
-
-              
           </Col>
         </Row>
       </Container>
