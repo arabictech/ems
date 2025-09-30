@@ -1,6 +1,4 @@
 package com.employee.ems.entity;
-
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
