@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,19 +18,20 @@ public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long emp_id;
-    private String name;
+    private String first_name;
+    private  String last_name;
     private  String email;
     private String phone;
     private String dept;
     private String designation;
     private double salary;
-    private Date joinDate;
+    private Date join_date;
 
 
     // ✅ If you want reverse mapping:
-    // @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
-    // private List<Leave> leaves;
-    //
-    // @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
-    // private List<Attendance> attendances;
+   //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
+   //  private List<Leave> leaves;
+
+   //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
+//private List<Attendance> attendances;
 }

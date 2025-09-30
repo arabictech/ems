@@ -17,7 +17,7 @@ public class Leave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long leave_id;
-
+   // private  long emp_id;
     private Date start_date;
     private Date end_date;
     private String type;

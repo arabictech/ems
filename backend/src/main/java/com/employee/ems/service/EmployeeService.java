@@ -5,7 +5,6 @@ import com.employee.ems.repository.Employeerepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -19,7 +18,17 @@ public class EmployeeService {
         return  employeerepo.save(employees);
     }
 
-    public Employees getAllEmployee() {
-       return employeerepo.findAll();
+
+    public List<Employees> getAllEmployees() {
+        return employeerepo.findAll();
+    }
+
+
+    public void DelEmployee(Long id) {
+        employeerepo.deleteById(id);
+    }
+
+    public Employees updateEmployees(Employees employees) {
+        return  employeerepo.save(employees);
     }
 }
