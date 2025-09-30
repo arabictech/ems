@@ -1,8 +1,8 @@
-body{
-  /* background-color: #f9fbfd; */
+body {
+  background-color: #dfe1e2;
 }
 
-.sidebar{
+.sidebar {
   background-color: #4c3575;
   min-height: 90vh;
   border-radius: 30px;
@@ -10,28 +10,39 @@ body{
   padding: 0 12px;
 }
 
-.main-content{
+.main-content {
   border: 5px solid yellow;
   width: 72%;
   margin-left: 25%;
   padding-top: 7%;
   position: absolute;
+  /* display: flex;
+  justify-content: center; */
+  
   /* z-index: 1000; */
 }
 
-.nav-link{
+.nav-link {
   transition: .3s;
   padding: 5px 0;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
 }
 
-.nav-link.active{
+.nav-link.active {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  /* margin: 20px 0; */
 }
