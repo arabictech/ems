@@ -1,8 +1,8 @@
-body{
-  background-color: #dfe1e2;
+body {
+  background-color: white;
 }
 
-.sidebar{
+.sidebar {
   background-color: #4c3575;
   min-height: 90vh;
   border-radius: 30px;
@@ -10,28 +10,58 @@ body{
   padding: 0 12px;
 }
 
-.main-content{
-  border: 5px solid yellow;
+.main-content {
+  /* border: 5px solid yellow; */
   width: 72%;
   margin-left: 25%;
-  padding-top: 7%;
   position: absolute;
-  /* z-index: 1000; */
+  top: 15%;
 }
 
-.nav-link{
+.nav-link {
   transition: .3s;
   padding: 5px 0;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
 }
 
-.nav-link.active{
+.nav-link.active {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
+}
+
+.form-container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* margin: 20px 0; */
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.btn1{
+  background-color: #4c3575;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  
+
+
+}
+
+.Add{
+  color: #4c3575;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
