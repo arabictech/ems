@@ -19,14 +19,18 @@ public class PayRoll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long payroll_id;
+    //    @ManyToOne
+//    @JoinColumn(name = "emp_id", nullable = false)
+//    private Employee employee;
     private Month month;
-    private double salary;
+
+    //@ManyToOne
+//    @JoinColumn(name = "salary", nullable = false)
+//    private Employee employee;
     private double deduction;
     private double net_salary;
 
-//    @ManyToOne
-//    @JoinColumn(name = "emp_id", nullable = false)
-//    private Employee employee;
+
 
 
 }

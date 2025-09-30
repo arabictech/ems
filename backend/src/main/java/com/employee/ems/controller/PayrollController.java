@@ -45,8 +45,9 @@ public class PayrollController {
 
     //Delete Date From Table
     @DeleteMapping("/{id}")
-    public void deletePayroll(@PathVariable long id) {
-        System.out.println("Delete Successfully");
+    public String deletePayroll(@PathVariable long id) {
+        payRollService.deletePayroll(id);
+        return "Deleted Payroll Successfully";
     }
 
 
