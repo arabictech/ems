@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "leaves")   // ✅ renamed from "leave"
+@Table(name = "leaves")   //  renamed from "leave"
 public class Leave {
 
     @Id
@@ -23,7 +23,7 @@ public class Leave {
     private String type;
     private String status;
 
-    // ✅ relation to Employees
+    // relation to Employees
     @ManyToOne
     @JoinColumn(name = "emp_id", nullable = false)
     private Employees employees;

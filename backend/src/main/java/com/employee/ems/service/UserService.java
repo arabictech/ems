@@ -11,20 +11,12 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
-    private UsersRepo usersRepo;
+   @Autowired
+   private UsersRepo usersRepo;
 
-    public Users addUser(@RequestBody Users users) {
-        return usersRepo.save(users);
-    }
-
-    public List<Users> GetallUser() {
-        return usersRepo.findAll();
-    }
-
-//    public Users getUserById(long id){
-//        return usersRepo.findById(id).get();
-//    }
+   public Users addUser(@RequestBody Users users) {
+       return usersRepo.save(users);
+   }
 
     public Users updateUser(long id, Users users) {
         return usersRepo.save(users);
