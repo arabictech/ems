@@ -21,7 +21,6 @@ const Employee = () => {
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control placeholder="Last name" />
                         </Form.Group>
-
                     </Row>
 
                     <Row className="mb-4">

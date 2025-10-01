@@ -68,8 +68,15 @@ body {
   margin-bottom: 30px;
 }
 
+.nav-icon{
+  transition: .3s;
+  color: black !important;
+}
+.nav-icon:hover{
+  transform: scale(1.2);
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .sidebar{
     display: none;
   }
@@ -77,6 +84,7 @@ body {
     width: 100%;
     margin-left: 0;
     top: 9%;
+    padding: 20px;
   }
   .nav{
     display: none;
@@ -85,3 +93,4 @@ body {
     width: 90%;
   }
 }
+
