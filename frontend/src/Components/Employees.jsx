@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 const Employee = () => {
     return (
@@ -10,7 +11,7 @@ const Employee = () => {
         <div className='main-content'>
             <div className='form-container '>
 
-                <Form>
+                <Form className='p-4'>
                     <h1 className='Add'>Add Employee</h1>
                     <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridFirstName">
@@ -75,6 +76,7 @@ const Employee = () => {
                             <Form.Control type="date" placeholder="Joining Date" />
                         </Form.Group>
                     </Row>
+                    
 
                     <Button className='btn1 mb-4' variant="primary" type="submit">
                         Add Employee
