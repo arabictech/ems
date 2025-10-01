@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'react-bootstrap/Image';
 import { NavLink } from 'react-router-dom';
 import { MdDashboard } from "react-icons/md";
@@ -18,30 +18,41 @@ import Button from 'react-bootstrap/Button';
 import { FaSearch } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
 import { IoMdNotifications } from "react-icons/io";
-
+import { TbUserCircle } from "react-icons/tb";
+import { HiBars3CenterLeft } from "react-icons/hi2";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { IoClose } from "react-icons/io5";
 function Header() {
+
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <Container fluid className='position-fixed'>
+        <div className=''><HiBars3CenterLeft onClick={handleShow} className=' border border-2 rounded-2 my-3 d-lg-none' style={{fontSize:'33px'}}/></div>
         <Row>
           <Col lg={3} md={3} >
            <div className='sidebar text-light shadow '>
+
             <Image src={require('../images/logo2.png')}  className=' w-100 my-4 px-5'  fluid />
             <div className='fs-4 mt-4'>
-                <NavLink to='/' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><MdDashboard /> Dashboard</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='employee' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><IoPersonSharp /> Employees</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='attendance' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><FaNotesMedical /> Attendance</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='leave' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><SlCalender /> Leave</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='payroll' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><FaUsers /> Payroll</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='report' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><TbReportAnalytics /> Report</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='analytics' className='nav-link mb-4 px-4 d-flex justify-content-between align-items-center'><span className='d-flex gap-3 align-items-center' ><IoMdAnalytics /> Analytics</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='/' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><MdDashboard /> Dashboard</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='employee' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><IoPersonSharp /> Employees</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='attendance' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><FaNotesMedical /> Attendance</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='leave' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><SlCalender /> Leave</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='payroll' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><FaUsers /> Payroll</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='report' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><TbReportAnalytics /> Report</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='analytics' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><IoMdAnalytics /> Analytics</span> <TiArrowSortedDown /></NavLink>
             </div>
         </div>
           </Col>
           <Col lg={9} className='p-0'>
-                <Navbar expand="lg" className="border" style={{margin:'40px',marginLeft:'0px',marginRight:'50px'}}>
+                <Navbar expand="lg" className="border nav" style={{margin:'40px',marginLeft:'0px',marginRight:'50px'}}>
                 <Container fluid className='p-0'>
-                  <Form className="d-flex bg-body-secondary p-1 rounded-3 ps-0">
+                  <Form className="d-flex bg-body-secondary p-1  w-25 rounded-3 ps-0">
                     <Form.Control
                       type="search"
                       placeholder='Search'
@@ -54,6 +65,7 @@ function Header() {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto fs-3">
                       <Nav.Link href="#home"><IoMdNotifications /></Nav.Link>
+                      <Nav.Link href="#home"><TbUserCircle /></Nav.Link>
                       <Nav.Link href="#link"><LuLogOut /></Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
@@ -63,6 +75,23 @@ function Header() {
         </Row>
       </Container>
      
+     <Offcanvas show={show} onHide={handleClose} className='w-75'>
+        <Offcanvas.Body style={{backgroundColor:'#4c3575'}}>
+          <div className='text-light'>
+            <div className='text-end'><IoClose className='fs-1' onClick={handleClose}/></div>
+            <Image src={require('../images/logo2.png')}  className=' w-100 my-4 px-5'  fluid />
+            <div className='fs-4 mt-4'>
+                <NavLink to='/'     className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><MdDashboard /> Dashboard</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='employee' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><IoPersonSharp /> Employees</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='attendance' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><FaNotesMedical /> Attendance</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='leave' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><SlCalender /> Leave</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='payroll' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><FaUsers /> Payroll</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='report' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><TbReportAnalytics /> Report</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='analytics' className='nav-link menu' onClick={handleClose}><span className='d-flex gap-3 align-items-center' ><IoMdAnalytics /> Analytics</span> <TiArrowSortedDown /></NavLink>
+            </div>
+        </div>
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   )
 }
