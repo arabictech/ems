@@ -20,6 +20,7 @@ public class AttendanceService {
 
 @Autowired
     Employeerepo employeerepo;
+<<<<<<< HEAD
 //    public Attendance addAttendance(Attendance attendance) {
 //        // fetch existing emp from db
 //        Long empId = attendance.getEmployees().getEmp_id();
@@ -30,7 +31,22 @@ public class AttendanceService {
 //        attendance.setEmployees(existingEmp);
 //        return attendenceRepo.save(attendance);
 //   }
+=======
+
+    public Attendance addAttendance(Attendance attendance) {
+        // fetch existing emp from db
+        Long empId = attendance.getEmployees().getEmp_id();
+        Employees existingEmp = employeerepo.findById(empId)
+                .orElseThrow(() -> new RuntimeException("Employee not found with id " + empId));
+
+        // set manage entity
+        attendance.setEmployees(existingEmp);
+        return attendenceRepo.save(attendance);
+   }
+
+>>>>>>> radha-updates
     public List<Attendance> getAllAttendance() {
         return attendenceRepo.findAll();
     }
+
 }

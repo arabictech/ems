@@ -48,10 +48,11 @@ body {
   /* margin: 20px 0; */
   width: 50%;
   margin: auto;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
-.btn1{
+
+.btn1 {
   background-color: #4c3575;
   border: none;
   border-radius: 12px;
@@ -60,7 +61,7 @@ body {
   justify-content: center;
 }
 
-.Add{
+.Add {
   color: #4c3575;
   text-align: center;
   font-weight: bold;
@@ -68,6 +69,7 @@ body {
   margin-bottom: 30px;
 }
 
+<<<<<<< HEAD
 .nav-icon{
   transition: .3s;
   color: black !important;
@@ -78,18 +80,36 @@ body {
 
 @media only screen and (max-width: 800px) {
   .sidebar{
+=======
+.login-container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* margin: 20px 0; */
+  width: 40%;
+  margin: auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+>>>>>>> c9e5edf231c5936dfb5818062433f260460ddcc4
     display: none;
   }
-  .main-content{
+
+  .main-content {
     width: 100%;
     margin-left: 0;
     top: 9%;
     padding: 20px;
   }
-  .nav{
+
+  .nav {
     display: none;
   }
-  .form-container{
+
+  .form-container {
     width: 90%;
   }
 }
