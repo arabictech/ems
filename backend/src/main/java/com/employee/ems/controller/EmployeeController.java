@@ -10,8 +10,9 @@ import java.util.List;
 @RequestMapping("/api/employees")
 @CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
+
     @Autowired
-    private EmployeeService employeeService;
+    EmployeeService employeeService;
 
     @PostMapping
     public Employees addEmployees( @RequestBody Employees employees) {

@@ -1,5 +1,6 @@
 package com.employee.ems.controller;
 
+import com.employee.ems.dto.PayRollResponseDTO;
 import com.employee.ems.entity.PayRoll;
 import com.employee.ems.service.PayRollService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +13,19 @@ import java.util.List;
 public class PayrollController {
 
     @Autowired
-    private PayRollService payRollService;
+    PayRollService payRollService;
 
 
     // Create Table And Insert Data In Table
     @PostMapping
-    public PayRoll addPayroll(@RequestBody PayRoll payRoll) {
+    public PayRollResponseDTO addPayroll(@RequestBody PayRoll payRoll) {
         return payRollService.addPayment(payRoll);
     }
-
 
     // Get All Data From TAble
     @GetMapping
     public List<PayRoll> GetAllPayroll() {
-        return payRollService.getMyAlldata();
+        return payRollService.getMyAllData();
     }
 
 
