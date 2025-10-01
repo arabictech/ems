@@ -1,6 +1,4 @@
 package com.employee.ems.entity;
-
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +17,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long user_id;
     private String username;
+    private String email;
     private String password;
     private String role;
 
