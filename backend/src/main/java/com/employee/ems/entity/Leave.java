@@ -1,25 +1,34 @@
 package com.employee.ems.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "leaves")   //  renamed from "leave"
+@Builder
 public class Leave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long leave_id;
    // private  long emp_id;
-    private Date start_date;
-    private Date end_date;
+
+
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate start_date;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate end_date;
+
     private String type;
     private String status;
 

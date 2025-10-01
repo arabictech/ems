@@ -16,7 +16,6 @@ public class EmployeeController {
     @PostMapping
     public Employees addEmployees( @RequestBody Employees employees) {
         return employeeService.addEmployees(employees);
-
     }
 
 @GetMapping
