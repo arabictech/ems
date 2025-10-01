@@ -16,6 +16,6 @@ public class LeaveController {
     LeaveService leaveService;
 
 
-    @PostMapping
-    public Leave add
+ //   @PostMapping
+   // public Leave add
 }
