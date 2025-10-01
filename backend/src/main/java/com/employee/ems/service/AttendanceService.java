@@ -13,6 +13,11 @@ import java.util.List;
 public class AttendanceService {
     @Autowired
     AttendenceRepo attendenceRepo;
+
+    public Attendance addAttendance(Attendance attendance) {
+        return attendenceRepo.save(attendance);
+    }
+
 @Autowired
     Employeerepo employeerepo;
     public Attendance addAttendance(Attendance attendance) {
