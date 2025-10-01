@@ -1,10 +1,12 @@
 package com.employee.ems.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -12,12 +14,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "employees")  // ✅ lowercase, avoid conflicts
+@Table(name = "employees")
 public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long emp_id;
+    private long emp_id;
     private String first_name;
     private  String last_name;
     private  String email;
@@ -25,7 +27,9 @@ public class Employees {
     private String dept;
     private String designation;
     private double salary;
-    private Date join_date;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-mm-yyyy")
+    private LocalDate join_date;
 
 
     //If i want reverse mapping:
@@ -34,4 +38,5 @@ public class Employees {
 
    //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
 //private List<Attendance> attendances;
+
 }
