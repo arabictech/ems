@@ -39,6 +39,8 @@ CREATE TABLE employees(
     join_date DATE,
     FOREIGN KEY (dept_id) REFERENCES departments(dept_id),
     FOREIGN KEY (email) REFERENCES users(email)  
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 
@@ -49,6 +51,8 @@ CREATE TABLE attendance(
         date DATE,
         status ENUM('Present','Absent','Leave','Holiday') NOT NULL,
         FOREIGN KEY(emp_id) REFERENCES employees(emp_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 
@@ -71,6 +75,8 @@ CREATE TABLE leaves(
     status ENUM('Pending','Approved','Rejected') DEFAULT 'Pending',
     FOREIGN KEY(emp_id) REFERENCES employees(emp_id),
     FOREIGN KEY(leave_type_id) REFERENCES leave_types(type_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 
@@ -84,5 +90,6 @@ CREATE TABLE payroll(
     deductions DECIMAL(10,2),
     net_salary DECIMAL(10,2),
     FOREIGN KEY(emp_id) REFERENCES employees(emp_id)
-     
+    ON UPDATE CASCADE
+    ON DELETE CASCADE 
 );
