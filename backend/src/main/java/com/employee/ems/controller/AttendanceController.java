@@ -21,10 +21,10 @@ public class AttendanceController {
 //   return attendanceService.addAttendance(attendance);
 //    }
 
-    @PostMapping("{emp_id}")
-    public  Attendance markAttendance(@PathVariable long emp_id,@RequestParam String status){
-
-    }
+//    @PostMapping("{emp_id}")
+//    public  Attendance markAttendance(@PathVariable long emp_id,@RequestParam String status){
+//
+//    }
 
     @GetMapping
     public List<Attendance> getAllAttendance(){

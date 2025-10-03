@@ -22,11 +22,9 @@ public class Leave {
     private Long leave_id;
    // private  long emp_id;
 
-
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate start_date;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+
     private LocalDate end_date;
 
     private String type;
