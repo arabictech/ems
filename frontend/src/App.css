@@ -11,25 +11,30 @@ body {
 }
 
 .main-content {
-  border: 5px solid yellow;
+  /* border: 5px solid yellow; */
   width: 72%;
   margin-left: 25%;
   position: absolute;
-  top: 12%;
+  top: 15%;
 }
 
-.nav-link {
+.menu {
   transition: .3s;
   padding: 5px 0;
+  margin-bottom: 22px;
+  padding: 8px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav-link:hover {
+.menu:hover {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
 }
 
-.nav-link.active {
+.menu.active {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
@@ -42,22 +47,67 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   /* margin: 20px 0; */
   width: 50%;
-  display: flex;
-  justify-content: center;
+  margin: auto;
+  /* display: flex;
+  justify-content: center; */
 }
-.btn{
+
+.btn1 {
   background-color: #4c3575;
   border: none;
   border-radius: 12px;
   padding: 10px 20px;
   display: flex;
   justify-content: center;
-
-
 }
 
-.Add{
+.Add {
   color: #4c3575;
   text-align: center;
   font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
+
+.nav-icon{
+  transition: .3s;
+  color: black !important;
+}
+.nav-icon:hover{
+  transform: scale(1.2);
+}
+
+.login-container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* margin: 20px 0; */
+  width: 40%;
+  margin: auto;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    top: 9%;
+    padding: 20px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+}
+
