@@ -25,9 +25,5 @@ public class LeaveController {
     }
 
 
-<<<<<<< HEAD
- //   @PostMapping
-   // public Leave add
-=======
->>>>>>> radha-updates
+
 }

@@ -13,11 +13,16 @@ import java.util.List;
 public class AttendanceService {
     @Autowired
     AttendenceRepo attendenceRepo;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 224f70196b6f596fb7df1b3cbac2fb945d890935
 
     public Attendance addAttendance(Attendance attendance) {
         return attendenceRepo.save(attendance);
     }
 
+<<<<<<< HEAD
 @Autowired
     Employeerepo employeerepo;
 <<<<<<< HEAD
@@ -32,6 +37,15 @@ public class AttendanceService {
 //        return attendenceRepo.save(attendance);
 //   }
 =======
+=======
+
+
+=======
+@Autowired
+    Employeerepo employeerepo;
+>>>>>>> d0d8f32f5ef1bc24e00a017d15496a683bf7b7cf
+
+>>>>>>> 224f70196b6f596fb7df1b3cbac2fb945d890935
 
     public Attendance addAttendance(Attendance attendance) {
         // fetch existing emp from db
@@ -44,7 +58,6 @@ public class AttendanceService {
         return attendenceRepo.save(attendance);
    }
 
->>>>>>> radha-updates
     public List<Attendance> getAllAttendance() {
         return attendenceRepo.findAll();
     }
