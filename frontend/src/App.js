@@ -7,6 +7,7 @@ import Employee from './Components/Employees';
 import LeaveForm from './Components/LeaveForm';
 import Login from './Components/Login';
 import RegisterForm from './Components/RegisterForm';
+import Attendance from './Components/Attendance';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Route path='/' element={<Dashboard/>}/>
         <Route path='employee' element={<Employee />}/>
         <Route path='leave' element={<LeaveForm />}/>
+        <Route path='login' element={<Login />}/>
+        <Route path='payroll' element={<RegisterForm />}/> 
+        <Route path='attendance' element={<Attendance />}/>
         {/* <Route path='attendance' element={<Login />}/> */}
         {/* <Route path='payroll' element={<RegisterForm />}/> */}
       </Routes>

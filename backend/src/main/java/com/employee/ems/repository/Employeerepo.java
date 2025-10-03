@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Employeerepo  extends JpaRepository<Employees, Long> {
-   // Employees UpdateById(Long id);
+
 }

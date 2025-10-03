@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-
 const LeaveForm = () => {
     const formik = useFormik({
         initialValues: {
@@ -22,14 +21,14 @@ const LeaveForm = () => {
             startDate: Yup.date()
                 .required('Start date is required'),
             endDate: Yup.date()
-                .required('End date is required'),
+                .required('End date is required')
+                .min('End date cannot be before start date'),
             reason: Yup.string()
-                .min(10, 'Must be at least 30 characters')
+                .min(10, 'Must be at least 10 characters')
                 .required('Reason is required')
         }),
 
     });
-
     return (
         <div className='main-content'>
             <div className='form-container'>
@@ -84,15 +83,15 @@ const LeaveForm = () => {
                     <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridLastName">
                             <Form.Label>Reason</Form.Label>
-                            <Form.Control
-                                as="textarea"
-                                rows={3}
-                                placeholder="Reason for Leave"
-                                onChange={formik.handleChange}
-                                name="reason"
-                                onBlur={formik.handleBlur}
-                                value={formik.values.reason}
-                                isInvalid={formik.touched.reason && formik.errors.reason}
+                            <Form.Control 
+                            as="textarea" 
+                            rows={3} 
+                            placeholder="Reason for Leave" 
+                            onChange={formik.handleChange}
+                            name="reason"
+                            onBlur={formik.handleBlur}
+                            value={formik.values.reason}
+                            isInvalid={formik.touched.reason && formik.errors.reason}
                             />
                             {(formik.errors.reason && formik.touched.reason) ? <span className='text-danger' style={{ fontSize: 12 }} >{formik.errors.reason}</span> : null}
                         </Form.Group>
@@ -108,3 +107,4 @@ const LeaveForm = () => {
 }
 
 export default LeaveForm
+    
