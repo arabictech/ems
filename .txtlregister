@@ -25,12 +25,11 @@ const RegisterForm = () => {
                 .email('Invalid email address')
                 .required('Email is required'),
             password: Yup.string()
-                .required('password is Required')
-                .matches(`^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$`, 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'),
+                .min(8, 'Must be at least 8 characters')    
+                .required('password is Required'),
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
                 .required('Confirm Password is required')
-                .matches(`^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$`, 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'),
         }),
     });
     return (
@@ -70,16 +69,7 @@ const RegisterForm = () => {
                     <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control 
-                            type="password" 
-                            placeholder="Enter Password" 
-                            name='password'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.password}
-                            isInvalid={formik.touched.password && formik.errors.password}
-                            />
-                            {(formik.errors.password && formik.touched.password) ? <span className='text-danger' style={{fontSize:12}} >{formik.errors.password}</span> : null}
+                            <Form.Control type="password" placeholder="Enter Password" />
                         </Form.Group>
                     </Row>
                     <Row className="mb-4">

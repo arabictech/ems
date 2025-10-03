@@ -16,8 +16,8 @@ function App() {
         <Route path='/' element={<Dashboard/>}/>
         <Route path='employee' element={<Employee />}/>
         <Route path='leave' element={<LeaveForm />}/>
-        {/* <Route path='attendance' element={<Login />}/> */}
-        {/* <Route path='payroll' element={<RegisterForm />}/> */}
+        <Route path='attendance' element={<Login />}/>
+        <Route path='payroll' element={<RegisterForm />}/> 
       </Routes>
     </div>
   );
