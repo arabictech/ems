@@ -15,10 +15,16 @@ public class AttendanceController {
     @Autowired
     AttendanceService attendanceService;
 
-    @PostMapping
-    public Attendance addAttendance(@RequestBody Attendance attendance){
-   return attendanceService.addAttendance(attendance);
-    }
+
+  //  @PostMapping
+//    public Attendance addAttendance(@RequestBody Attendance attendance){
+//   return attendanceService.addAttendance(attendance);
+//    }
+
+//    @PostMapping("{emp_id}")
+//    public  Attendance markAttendance(@PathVariable long emp_id,@RequestParam String status){
+//
+//    }
 
     @GetMapping
     public List<Attendance> getAllAttendance(){

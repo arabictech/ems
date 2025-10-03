@@ -1,10 +1,12 @@
 package com.employee.ems.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,6 +24,8 @@ public class Attendance {
     @JoinColumn(name = "emp_id", nullable = false)
     private Employees employees;
 
-    private Date date;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-mm-yyyy")
+    private LocalDate date;
+
     private String status;          //present,absent,leave
 }
