@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 package com.employee.ems.service;
 
-import com.employee.ems.dto.EmployeeShortDTO;
-import com.employee.ems.dto.PayRollResponseDTO;
+import com.employee.ems.dto.PayRollEmployeeDto;
+import com.employee.ems.dto.PayRollResponseDto;
 import com.employee.ems.entity.Employees;
 import com.employee.ems.entity.PayRoll;
 import com.employee.ems.repository.Employeerepo;
@@ -16,13 +15,29 @@ import java.util.List;
 public class PayRollService {
 
     @Autowired
-    private PayRollRepo payrollRepo;
+     PayRollRepo payrollRepo;
 
     @Autowired
-    private Employeerepo employeesRepo;
+     Employeerepo employeesRepo;
+
+    private static PayRollResponseDto getPayRollResponseDto(Employees existingEmp, PayRoll savedPayRoll) {
+        PayRollEmployeeDto employeeDTO = new PayRollEmployeeDto(
+                existingEmp.getEmp_id(),
+                existingEmp.getSalary()
+        );
+
+        PayRollResponseDto responseDto = new PayRollResponseDto();
+        responseDto.setPayroll_id(savedPayRoll.getPayroll_id());
+        responseDto.setMonth(savedPayRoll.getMonth());
+        responseDto.setSalary(savedPayRoll.getSalary());
+        responseDto.setDeduction(savedPayRoll.getDeduction());
+        responseDto.setNet_salary(savedPayRoll.getNet_salary());
+        responseDto.setPayroll_employee(employeeDTO);
+        return responseDto;
+    }
 
     // Create Table And Insert Data In Table
-    public PayRollResponseDTO addPayment(PayRoll payRoll) {
+    public PayRollResponseDto addPayment(PayRoll payRoll) {
         Long empId = payRoll.getEmployees() != null ? payRoll.getEmployees().getEmp_id() : null;
 
         if (empId == null) {
@@ -32,26 +47,19 @@ public class PayRollService {
         Employees existingEmp = employeesRepo.findById(empId)
                 .orElseThrow(() -> new RuntimeException("Employee not found with ID: " + empId));
 
-        double net = existingEmp.getSalary() - payRoll.getDeduction();
-        payRoll.setSalary(existingEmp.getSalary());
-        payRoll.setNet_salary(net);
+        double employeeSalary = existingEmp.getSalary();
+
+        double netSalary = employeeSalary - payRoll.getDeduction();
+
+        payRoll.setSalary(employeeSalary);
+        payRoll.setNet_salary(netSalary);
         payRoll.setEmployees(existingEmp);
 
         PayRoll savedPayRoll = payrollRepo.save(payRoll);
 
-        EmployeeShortDTO employeeDTO = new EmployeeShortDTO(
-                existingEmp.getEmp_id(),
-                existingEmp.getSalary()
-        );
+        PayRollResponseDto responseDto = getPayRollResponseDto(existingEmp, savedPayRoll);
 
-        return new PayRollResponseDTO(
-                savedPayRoll.getPayroll_id(),
-                employeeDTO,
-                savedPayRoll.getMonth(),
-                savedPayRoll.getSalary(),
-                savedPayRoll.getDeduction(),
-                savedPayRoll.getNet_salary()
-        );
+        return responseDto;
     }
 
     // Get All Data From Table
@@ -73,51 +81,6 @@ public class PayRollService {
     public void deletePayroll(long id) {
         payrollRepo.deleteById((int) id);
     }
+
+
 }
-=======
-//package com.employee.ems.service;
-//
-//import com.employee.ems.entity.PayRoll;
-//import com.employee.ems.repository.PayRollRepo;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//
-//@Service
-//public class PayRollService {
-//
-//    @Autowired
-//    private PayRollRepo payrollRepo;
-//
-//    // Create Table And Insert Data In Table
-//    public PayRoll addPayment(PayRoll payRoll) {
-//        double net = payRoll.getSalary() - payRoll.getDeduction();
-//        payRoll.setNet_salary(net);
-//        return payrollRepo.save(payRoll);
-//
-//    }
-//
-//    // Get All Data From TAble
-//    public List<PayRoll> getMyAlldata() {
-//        return payrollRepo.findAll();
-//    }
-//
-//    // Get Data From Table By Using ID
-//    public PayRoll getPayrollById(long id) {
-//        return payrollRepo.findById(id).get();
-//    }
-//
-//    // Update Data In TAble
-//    public PayRoll updatePayroll(long id, PayRoll payRoll) {
-//        double net = payRoll.getSalary() - payRoll.getDeduction();
-//        payRoll.setNet_salary(net);
-//        return payrollRepo.save(payRoll);
-//    }
-//
-//    //Delete Date From Table
-//    public void deletePayroll(long id) {
-//        payrollRepo.deleteById(id);
-//    }
-//}
->>>>>>> d0d8f32f5ef1bc24e00a017d15496a683bf7b7cf

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class EmployeeService {
     @Autowired
-    private Employeerepo employeerepo;
+     Employeerepo employeerepo;
 
 
     public Employees addEmployees( Employees employees) {

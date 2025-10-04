@@ -13,18 +13,15 @@ import java.util.List;
 public class AttendanceService {
     @Autowired
     AttendenceRepo attendenceRepo;
-<<<<<<< HEAD
 
-    public Attendance addAttendance(Attendance attendance) {
-        return attendenceRepo.save(attendance);
-    }
-
+//    public Attendance addAttendance(Attendance attendance) {
+//        return attendenceRepo.save(attendance);
+//    }
 
 
-=======
+
 @Autowired
     Employeerepo employeerepo;
->>>>>>> d0d8f32f5ef1bc24e00a017d15496a683bf7b7cf
 
 
     public Attendance addAttendance(Attendance attendance) {
