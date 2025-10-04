@@ -28,7 +28,7 @@ public class Employees {
     private String designation;
     private double salary;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-mm-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
     private LocalDate join_date;
 
 

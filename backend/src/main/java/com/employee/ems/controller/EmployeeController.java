@@ -1,5 +1,7 @@
 package com.employee.ems.controller;
 
+import com.employee.ems.dto.EmployeeRequestDto;
+import com.employee.ems.dto.EmployeeResponseDto;
 import com.employee.ems.entity.Employees;
 import com.employee.ems.repository.Employeerepo;
 import com.employee.ems.service.EmployeeService;
@@ -14,23 +16,31 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping
-    public Employees addEmployees( @RequestBody Employees employees) {
-        return employeeService.addEmployees(employees);
+    public EmployeeResponseDto addEmployees(@RequestBody  EmployeeRequestDto dto) {
+        return employeeService.addEmployees(dto);
     }
 
 @GetMapping
-    public  List<Employees> getAllEmployees(){
+    public  List<EmployeeResponseDto> getAllEmployees(){
         return  employeeService.getAllEmployees();
 }
 
+//get by id
+    @GetMapping("{id}")
+    public EmployeeResponseDto getEmployeeById(@PathVariable long id){
+        return  employeeService.getEmployeeById(id);
+    }
+
 @DeleteMapping("{id}")
     public  String DelEmployees(@PathVariable Long id){
-    employeeService.DelEmployee(id);
+    employeeService.deleteEmployee(id);
         return "Employee Deleted";
 }
+
+
+
 @PutMapping("{id}")
-    public  Employees  updateEmployees(@PathVariable Long id ,@RequestBody Employees employees){
-        employees.setEmp_id(id);
-       return  employeeService.updateEmployees(employees);
+    public  EmployeeResponseDto  UpdateEmployees(@PathVariable long id,@RequestBody EmployeeRequestDto dto){
+        return employeeService.updateEmployee(id ,dto);
 }
 }
