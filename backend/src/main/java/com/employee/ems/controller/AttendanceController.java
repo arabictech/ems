@@ -1,7 +1,6 @@
 package com.employee.ems.controller;
 
 import com.employee.ems.entity.Attendance;
-import com.employee.ems.entity.Employees;
 import com.employee.ems.service.AttendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +11,9 @@ import java.util.List;
 @RequestMapping("api/attendance")
 @CrossOrigin(origins="http://localhost:3000")
 public class AttendanceController {
+
     @Autowired
-    private AttendanceService attendanceService;
+    AttendanceService attendanceService;
 
 
   //  @PostMapping
