@@ -24,7 +24,9 @@ const Login = () => {
             password: Yup.string()
                 .required('password is Required')
         }),
-
+         onSubmit: values => {
+            console.log(values);
+        }
 
     });
     return (

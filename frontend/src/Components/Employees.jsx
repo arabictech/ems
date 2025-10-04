@@ -118,7 +118,7 @@ const Employee = () => {
                     </Row>
                     
 
-                    <Button className='btn1 mb-4' variant="primary" type="submit">
+                    <Button className='btn1 w-100' variant="primary" type="submit">
                         Add Employee
                     </Button>
                 </Form>
