@@ -10,16 +10,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")                        //dnt use if write config
 public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
-
-    @PostMapping
-    public EmployeeResponseDto addEmployees(@RequestBody  EmployeeRequestDto dto) {
-        return employeeService.addEmployees(dto);
+//
+//    @PostMapping
+//    public EmployeeResponseDto addEmployees(@RequestBody  List<EmployeeRequestDto> dto) {
+//        return employeeService.addEmployees(dto);
+//    }
+    @PostMapping("/bulk")
+    public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
+        return employeeService.addEmployeesBulk(dtos);
     }
+
+
 
 @GetMapping
     public  List<EmployeeResponseDto> getAllEmployees(){

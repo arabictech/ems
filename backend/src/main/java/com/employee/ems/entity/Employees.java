@@ -24,12 +24,12 @@ public class Employees {
     private  String last_name;
     private  String email;
     private String phone;
-    private String dept;
+    private String department;
     private String designation;
     private double salary;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
-    private LocalDate join_date;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
+   // private LocalDate join_date;
 
 
     //If i want reverse mapping:

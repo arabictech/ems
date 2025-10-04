@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from "yup";
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 let validate = yup.object({
     first_name: yup.string().required("First name is required!"),
@@ -15,7 +17,7 @@ let validate = yup.object({
     department: yup.string().required("Department is required!"),
     designation: yup.string().required("Designation is required!"),
     salary: yup.string().required("Salary is required!"),
-    join_date: yup.string().required("Joining Date is required!"),
+    // join_date: yup.string().required("Joining Date is required!"),
 })
 
 const Employee = () => {
@@ -28,15 +30,23 @@ const Employee = () => {
         department:"",
         designation:"",
         salary:"",
-        join_date:"",
+        // join_date:"",
     }
     
     const {errors,values,touched,handleSubmit,handleChange,handleBlur,resetForm} = useFormik({
         initialValues:inpFields,
         validationSchema: validate,
-        onSubmit : (values) => {
-            console.log("values-----------",values);
-            resetForm();
+        onSubmit :async (values) => {
+         //   console.log(values)
+            try {
+                const res = await axios.post("http://localhost:8080/api/employees", values);
+                toast.success('Employee Added Successfully')
+                resetForm();
+                console.log("Employee Added Successfully:", res.data);
+            } catch (err) {
+                toast.error('Error while adding employee')
+                console.error("Error while adding employee:", err);
+            }
         }
     });
 
@@ -72,7 +82,7 @@ const Employee = () => {
                     <Row className='mb-4'>
                         <Form.Group as={Col} controlId="formGridPhone">
                             <Form.Label>Phone</Form.Label>
-                            <Form.Control type="number" placeholder="Phone Number" name='phone' value={values.phone} onChange={handleChange} onBlur={handleBlur} />
+                            <Form.Control type="text" placeholder="Phone Number" name='phone' value={values.phone} onChange={handleChange} onBlur={handleBlur} />
                             {(errors.phone && touched.phone) ? <span className='text-danger' style={{fontSize:12}} >{errors.phone}</span> : null}
                         </Form.Group>
                     </Row>
@@ -110,11 +120,12 @@ const Employee = () => {
                             <Form.Control type="number" placeholder="Salary" name='salary' value={values.salary} onChange={handleChange} onBlur={handleBlur} />
                             {(errors.salary && touched.salary) ? <span className='text-danger' style={{fontSize:12}} >{errors.salary}</span> : null}
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGrid">
+                        {/* <Form.Group as={Col} controlId="formGrid">
                             <Form.Label>Joining Date</Form.Label>
                             <Form.Control type="date" placeholder="Joining Date" name='join_date' value={values.join_date} onChange={handleChange} onBlur={handleBlur} />
                             {(errors.join_date && touched.join_date) ? <span className='text-danger' style={{fontSize:12}} >{errors.join_date}</span> : null}
-                        </Form.Group>
+                        </Form.Group> */}
+                        
                     </Row>
                     
 
@@ -122,6 +133,11 @@ const Employee = () => {
                         Add Employee
                     </Button>
                 </Form>
+
+                <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
             </div>
         </div>
 
