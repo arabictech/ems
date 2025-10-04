@@ -8,8 +8,9 @@ import LeaveForm from './Components/LeaveForm';
 import Login from './Components/Login';
 import RegisterForm from './Components/RegisterForm';
 import Attendance from './Components/Attendance';
-import Payroll from './Components/Payroll';
+// import Payroll from './Components/Payroll';
 import { SalarySlip } from './Components/SalarySlip';
+import DatePicker from './Components/DatePicker';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='login' element={<Login />}/>
         {/* <Route path='payroll' element={<RegisterForm />}/>  */}
         <Route path='attendance' element={<Attendance />}/>
+        <Route path='date-picker' element={<DatePicker />}/>
         {/* <Route path='attendance' element={<Login />}/> */}
         {/* <Route path='payroll' element={<RegisterForm />}/> */}
         {/* <Route path='payroll' element={<Payroll />}/> */}
