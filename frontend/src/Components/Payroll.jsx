@@ -105,7 +105,7 @@ const Payroll = () => {
                             <Form.Label>Net Salary</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Bonuses"
+                                placeholder="Net Salary"
                                 name='netSalary'
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}

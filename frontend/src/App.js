@@ -9,6 +9,7 @@ import Login from './Components/Login';
 import RegisterForm from './Components/RegisterForm';
 import Attendance from './Components/Attendance';
 import Payroll from './Components/Payroll';
+import { SalarySlip } from './Components/SalarySlip';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
         <Route path='attendance' element={<Attendance />}/>
         {/* <Route path='attendance' element={<Login />}/> */}
         {/* <Route path='payroll' element={<RegisterForm />}/> */}
-        <Route path='payroll' element={<Payroll />}/>
+        {/* <Route path='payroll' element={<Payroll />}/> */}
+        <Route path='payroll' element={<SalarySlip />}/>
       </Routes>
     </div>
   );
