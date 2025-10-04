@@ -27,28 +27,6 @@ public class UserController {
 //    @GetMapping({"/{id}"})
 //    public Users getUserById(@PathVariable("id") long id){
 //        return userService.getUserById(id);
-//    }
-//
-//    @GetMapping
-//    public List<Users> GetallUser(){
-//        return userService.GetallUser();
-//    }
-//
-////    @GetMapping({"/{id}"})
-////    public Users getUserById(@PathVariable("id") long id){
-////        return userService.getUserById(id);
-////    }
-//
-//    @PutMapping("/{id}")
-//    public Users updateUser(@PathVariable int id, @RequestBody Users users){
-//        users.setUser_id(id);
-//        return userService.updateUser(id, users);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public String deleteUser(@PathVariable int id){
-//        userService.deleteUser(id);
-//        return "Deleted User Successfully";
-//    }
-//
+
 }
+

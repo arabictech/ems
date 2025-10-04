@@ -18,14 +18,6 @@ public class UserService {
         return usersRepo.save(users);
     }
 
-    public Users updateUser(long id, Users users) {
-        return usersRepo.save(users);
-    }
-
-    public void deleteUser(long id) {
-        usersRepo.deleteById((int) id);
-    }
-
     public List<Users> GetallUser() {
         return  usersRepo.findAll();
     }

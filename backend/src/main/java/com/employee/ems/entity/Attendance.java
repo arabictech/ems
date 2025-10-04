@@ -24,7 +24,7 @@ public class Attendance {
     @JoinColumn(name = "emp_id", nullable = false)
     private Employees employees;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-mm-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate date;
 
     private String status;          //present,absent,leave
