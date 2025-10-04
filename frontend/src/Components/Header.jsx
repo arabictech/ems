@@ -22,9 +22,10 @@ import { TbUserCircle } from "react-icons/tb";
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { IoClose } from "react-icons/io5";
+
 function Header() {
 
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -50,7 +51,7 @@ function Header() {
         </div>
           </Col>
           <Col lg={9} className='p-0'>
-                <Navbar expand="lg" className="border nav" style={{margin:'40px',marginLeft:'0px',marginRight:'50px'}}>
+                <Navbar expand="lg" className=" nav" style={{margin:'40px',marginLeft:'0px',marginRight:'50px'}}>
                 <Container fluid className='p-0'>
                   <Form className="d-flex bg-body-secondary p-1  w-25 rounded-3 ps-0">
                     <Form.Control
@@ -64,9 +65,9 @@ function Header() {
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto fs-3">
-                      <Nav.Link href="#home"><IoMdNotifications /></Nav.Link>
-                      <Nav.Link href="#home"><TbUserCircle /></Nav.Link>
-                      <Nav.Link href="#link"><LuLogOut /></Nav.Link>
+                      <Nav.Link href="#home" className='nav-icon'><IoMdNotifications /></Nav.Link>
+                      <Nav.Link href="#home" className='nav-icon'><TbUserCircle /></Nav.Link>
+                      <Nav.Link href="#link" className='nav-icon'><LuLogOut /></Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
                 </Container>
