@@ -21,13 +21,13 @@ public class EmployeeController {
     //
 //    @PostMapping
 //    public EmployeeResponseDto addEmployees(@RequestBody  List<EmployeeRequestDto> dto) {
-//        return employeeService.addEmployees(dto);
+//        return employeeService.addEmployees((EmployeeRequestDto) dto);
 //    }
-    @PostMapping("/bulk")
+
+    @PostMapping()
     public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
         return employeeService.addEmployeesBulk(dtos);
     }
-
 
     @GetMapping
     public List<EmployeeResponseDto> getAllEmployees() {
