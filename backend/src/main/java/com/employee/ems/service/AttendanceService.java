@@ -14,7 +14,7 @@ public class AttendanceService {
     @Autowired
     AttendenceRepo attendenceRepo;
 
-@Autowired
+    @Autowired
     Employeerepo employeerepo;
 
 
@@ -27,7 +27,7 @@ public class AttendanceService {
         // set manage entity
         attendance.setEmployees(existingEmp);
         return attendenceRepo.save(attendance);
-   }
+    }
 
     public List<Attendance> getAllAttendance() {
         return attendenceRepo.findAll();

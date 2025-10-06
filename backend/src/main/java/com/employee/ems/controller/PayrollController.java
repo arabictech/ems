@@ -1,12 +1,16 @@
 package com.employee.ems.controller;
 
 import com.employee.ems.dto.PayRollResponseDto;
+import com.employee.ems.entity.Employees;
 import com.employee.ems.entity.PayRoll;
 import com.employee.ems.service.PayRollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.employee.ems.service.PayRollService.getPayRollResponseDto;
 
 @RestController
 @RequestMapping("/api/payroll")
@@ -24,8 +28,17 @@ public class PayrollController {
 
     // Get All Data From TAble
     @GetMapping
-    public List<PayRoll> GetAllPayroll() {
-        return payRollService.getMyAllData();
+    public List<PayRollResponseDto> getAllPayrolls() {
+        List<PayRoll> payRollList = payRollService.getMyAllData();
+        List<PayRollResponseDto> responseList = new ArrayList<>();
+
+        for (PayRoll payRoll : payRollList) {
+            Employees emp = payRoll.getEmployees();
+            PayRollResponseDto dto = getPayRollResponseDto(emp, payRoll);
+            responseList.add(dto);
+        }
+
+        return responseList;
     }
 
 

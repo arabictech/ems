@@ -15,20 +15,20 @@ import java.util.List;
 public class PayRollService {
 
     @Autowired
-     PayRollRepo payrollRepo;
+    PayRollRepo payrollRepo;
 
     @Autowired
-     Employeerepo employeesRepo;
+    Employeerepo employeesRepo;
 
-    private static PayRollResponseDto getPayRollResponseDto(Employees existingEmp, PayRoll savedPayRoll) {
+    public static PayRollResponseDto getPayRollResponseDto(Employees existingEmp, PayRoll savedPayRoll) {
         PayRollEmployeeDto employeeDTO = new PayRollEmployeeDto(
-                existingEmp.getEmp_id(),
+                (int) existingEmp.getEmp_id(),
                 existingEmp.getSalary()
         );
 
         PayRollResponseDto responseDto = new PayRollResponseDto();
-        responseDto.setPayroll_id(savedPayRoll.getPayroll_id());
-        responseDto.setMonth(savedPayRoll.getMonth());
+        responseDto.setPayroll_id((int) savedPayRoll.getPayroll_id());
+        responseDto.setMonth(String.valueOf(savedPayRoll.getMonth()));
         responseDto.setSalary(savedPayRoll.getSalary());
         responseDto.setDeduction(savedPayRoll.getDeduction());
         responseDto.setNet_salary(savedPayRoll.getNet_salary());

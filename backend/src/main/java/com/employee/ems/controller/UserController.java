@@ -12,7 +12,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserService  userService;
+    UserService userService;
 
     @PostMapping
     public Users addUser(@RequestBody Users users) {
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<Users> GetallUser(){
+    public List<Users> GetallUser() {
         return userService.GetallUser();
     }
 

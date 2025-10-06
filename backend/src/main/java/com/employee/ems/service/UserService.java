@@ -12,13 +12,13 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-     UsersRepo usersRepo;
+    UsersRepo usersRepo;
 
     public Users addUser(@RequestBody Users users) {
         return usersRepo.save(users);
     }
 
     public List<Users> GetallUser() {
-        return  usersRepo.findAll();
+        return usersRepo.findAll();
     }
 }
