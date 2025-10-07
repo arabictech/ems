@@ -14,6 +14,8 @@ import static com.employee.ems.service.PayRollService.getPayRollResponseDto;
 
 @RestController
 @RequestMapping("/api/payroll")
+@CrossOrigin(origins = "http://localhost:3000")                        //dnt use if write config
+
 public class PayrollController {
 
     @Autowired
