@@ -62,7 +62,7 @@ const Attendance = () => {
                             ))}
                         </tr>
                         <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Aman</td>
+                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Radha</td>
                             {Array.from({ length: 31 }).map((_, index) => (
                                 <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
                             ))}
@@ -74,7 +74,13 @@ const Attendance = () => {
                             ))}
                         </tr>
                         <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Radha</td>
+                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Aman</td>
+                            {Array.from({ length: 31 }).map((_, index) => (
+                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
+                            ))}
+                        </tr>
+                        <tr>
+                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Vora</td>
                             {Array.from({ length: 31 }).map((_, index) => (
                                 <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
                             ))}
