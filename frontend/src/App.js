@@ -12,6 +12,7 @@ import Attendance from './Components/Attendance';
 import { SalarySlip } from './Components/SalarySlip';
 import DatePicker from './Components/DatePicker';
 import EmployeeCard from './Components/EmployeeCard';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         {/* <Route path='payroll' element={<RegisterForm />}/> */}
         {/* <Route path='payroll' element={<Payroll />}/> */}
         <Route path='payroll' element={<SalarySlip />}/>
-        <Route path='report' element={<EmployeeCard />}/>
+        <Route path='report' element={<Profile />}/>
       </Routes>
     </div>
   );
