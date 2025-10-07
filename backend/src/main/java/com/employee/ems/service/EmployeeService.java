@@ -4,19 +4,16 @@ import com.employee.ems.dto.EmployeeRequestDto;
 import com.employee.ems.dto.EmployeeResponseDto;
 import com.employee.ems.entity.Employees;
 import com.employee.ems.repository.Employeerepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
     @Autowired
-    private Employeerepo employeerepo;
+    Employeerepo employeerepo;
 
 //    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -25,7 +22,7 @@ public class EmployeeService {
 //        Employees saved = employeerepo.save(employees);
 //        return toResponseDto(saved);
 //    }
-    
+
 
     // Bulk insert
     // Single insert (existing method)
@@ -43,10 +40,6 @@ public class EmployeeService {
     }
 
 
-
-
-
-
     //  Entity -> ResponseDTO Mapper
     private EmployeeResponseDto toResponseDto(Employees employees) {
         EmployeeResponseDto dto = new EmployeeResponseDto();
@@ -57,8 +50,8 @@ public class EmployeeService {
         dto.setPhone(employees.getPhone());
         dto.setDepartment(employees.getDepartment());
         dto.setDesignation(employees.getDesignation());
-      dto.setSalary(employees.getSalary());
-      //  dto.setJoin_date(employees.getJoin_date().format(formatter));
+        dto.setSalary(employees.getSalary());
+        //  dto.setJoin_date(employees.getJoin_date().format(formatter));
 
         //dto.setJoin_date(employees.getJoin_date().format(formatter));
         return dto;
@@ -74,10 +67,9 @@ public class EmployeeService {
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
         employees.setSalary(dto.getSalary());
-      //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+        //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
         return employees;
     }
-
 
 
     public EmployeeResponseDto updateEmployee(Long id, EmployeeRequestDto dto) {
@@ -91,8 +83,8 @@ public class EmployeeService {
         employees.setPhone(dto.getPhone());
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
-       // employees.setSalary(dto.getSalary());
-       // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+        // employees.setSalary(dto.getSalary());
+        // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
 
         Employees updated = employeerepo.save(employees);
         return toResponseDto(updated);
@@ -120,11 +112,6 @@ public class EmployeeService {
         }
         employeerepo.deleteById(id);
     }
-
-
-
-
-
 
 
 }

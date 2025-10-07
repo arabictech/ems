@@ -9,5 +9,5 @@ public class LeaveResponseDto {
     private String end_date;
     private String type;
     private String status;
-    private  SimpleEmployeeDto simpleEmployeeDto;
+    private SimpleEmployeeDto simpleEmployeeDto;
 }

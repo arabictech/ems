@@ -7,5 +7,5 @@ public class AttendanceResponseDto {
     private long att_id;
     private String status;
     private String date; //cause give dd-MM-yyyy
-    private  SimpleEmployeeDto simpleEmployeeDto;
+    private SimpleEmployeeDto simpleEmployeeDto;
 }
