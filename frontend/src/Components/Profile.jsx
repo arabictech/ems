@@ -13,8 +13,11 @@ const Profile = () => {
         <Container className=''>
             <Row>
                 <Col lg={8} md={6}>
-                    <Card></Card>
+                    <Card>
+
+                    </Card>
                 </Col>
+                
             </Row>
         </Container>
 
