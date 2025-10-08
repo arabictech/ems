@@ -1,29 +1,19 @@
 package com.employee.ems.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Month;
 
+@Data
 @Getter
 @Setter
-public class PayRollResponseDTO {
-
-    private Long payroll_id;
-    private EmployeeShortDTO employees;
-    private Month month;
-    private Double salary;
-    private Double deduction;
-    private Double net_salary;
-
-    public PayRollResponseDTO(Long payroll_id, EmployeeShortDTO employees, Month month,
-                              Double salary, Double deduction, Double net_salary) {
-        this.payroll_id = payroll_id;
-        this.employees = employees;
-        this.month = month;
-        this.salary = salary;
-        this.deduction = deduction;
-        this.net_salary = net_salary;
-    }
-
+public class PayRollResponseDto {
+    private int payroll_id;
+    private String month;
+    private double salary;
+    private double deduction;
+    private double net_salary;
+    private PayRollEmployeeDto payroll_employee;
 }

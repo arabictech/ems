@@ -9,21 +9,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/leave")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LeaveController {
     @Autowired
     LeaveService leaveService;
 
     @PostMapping("/{emp_id}")
-    public Leave applyLeaves(@PathVariable long emp_id,@RequestBody Leave leaveRequest){
-        return  leaveService.addLeaves(emp_id,leaveRequest);
+    public Leave applyLeaves(@PathVariable long emp_id, @RequestBody Leave leaveRequest) {
+        return leaveService.addLeaves(emp_id, leaveRequest);
     }
 
     @GetMapping
-    public List<Leave> getLeaves(){
-        return  leaveService.getAllLeaves();
+    public List<Leave> getLeaves() {
+        return leaveService.getAllLeaves();
     }
-
 
 
 }

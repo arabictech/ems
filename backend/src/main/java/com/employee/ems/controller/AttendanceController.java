@@ -9,14 +9,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/attendance")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AttendanceController {
 
     @Autowired
     AttendanceService attendanceService;
 
 
-  //  @PostMapping
+    //  @PostMapping
 //    public Attendance addAttendance(@RequestBody Attendance attendance){
 //   return attendanceService.addAttendance(attendance);
 //    }
@@ -27,10 +27,9 @@ public class AttendanceController {
 //    }
 
     @GetMapping
-    public List<Attendance> getAllAttendance(){
-        return  attendanceService.getAllAttendance();
+    public List<Attendance> getAllAttendance() {
+        return attendanceService.getAllAttendance();
     }
-
 
 
 }
