@@ -32,11 +32,14 @@ const RegisterForm = () => {
                 .required('Confirm Password is required')
                 .matches(`^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$`, 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'),
         }),
+        onSubmit: values => {
+            console.log(values);
+        }
     });
     return (
         <div className='main-content'>
-            <div className='login-container'>
-                <h1 className='Add'>Register</h1>
+            <div className='form-container'>
+                {/* <h1 className='Add'>Register</h1> */}
                 <Form className='p-4' onSubmit={formik.handleSubmit}>
                     <Row className="mb-4">
                         <Form.Group as={Col} controlId="formGridUsername">

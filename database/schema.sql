@@ -12,7 +12,7 @@ CREATE TABLE users(
 
 
 -- DEPARTMENTS
-CREATE TABLE departments(
+CREATE TABLE department(
 	dept_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL 	
 );
@@ -37,7 +37,7 @@ CREATE TABLE employees(
     designation VARCHAR(100),
     salary DECIMAL(10,2),
     join_date DATE,
-    FOREIGN KEY (dept_id) REFERENCES departments(dept_id),
+    FOREIGN KEY (dept_id) REFERENCES department(dept_id),
     FOREIGN KEY (email) REFERENCES users(email)  
     ON UPDATE CASCADE
     ON DELETE CASCADE

@@ -11,13 +11,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/attendance")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AttendanceController {
 
     @Autowired
     AttendanceService attendanceService;
 
 
+<<<<<<< HEAD
+=======
+    //  @PostMapping
+//    public Attendance addAttendance(@RequestBody Attendance attendance){
+//   return attendanceService.addAttendance(attendance);
+//    }
+>>>>>>> f5f9aef3bb52e28b61d8fd51fd9236ef7c34f34b
 
     // ➤ Mark attendance for employee
     @PostMapping("/{empId}")
@@ -28,6 +35,7 @@ public class AttendanceController {
 
     // ➤ Get all attendance
     @GetMapping
+<<<<<<< HEAD
     public List<AttendanceResponseDto> getAllAttendance() {
         return attendanceService.getAllAttendance();
     }
@@ -36,6 +44,10 @@ public class AttendanceController {
     @GetMapping("/employee/{empId}")
     public List<AttendanceResponseDto> getAttendanceByEmployee(@PathVariable long empId) {
         return attendanceService.getAttendanceByEmployee(empId);
+=======
+    public List<Attendance> getAllAttendance() {
+        return attendanceService.getAllAttendance();
+>>>>>>> f5f9aef3bb52e28b61d8fd51fd9236ef7c34f34b
     }
 
 

@@ -22,6 +22,7 @@ public class AttendanceService {
     AttendanceRepo attendanceRepo;
 
     @Autowired
+<<<<<<< HEAD
     private Employeerepo employeerepo;
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -39,6 +40,24 @@ public class AttendanceService {
         Attendance saved = attendanceRepo.save(attendance);
 
         return mapToResponse(saved);
+=======
+    Employeerepo employeerepo;
+
+
+    public Attendance addAttendance(Attendance attendance) {
+        // fetch existing emp from db
+        Long empId = attendance.getEmployees().getEmp_id();
+        Employees existingEmp = employeerepo.findById(empId)
+                .orElseThrow(() -> new RuntimeException("Employee not found with id " + empId));
+
+        // set manage entity
+        attendance.setEmployees(existingEmp);
+        return attendenceRepo.save(attendance);
+    }
+
+    public List<Attendance> getAllAttendance() {
+        return attendenceRepo.findAll();
+>>>>>>> f5f9aef3bb52e28b61d8fd51fd9236ef7c34f34b
     }
 
     // ➤ Get all attendance records
