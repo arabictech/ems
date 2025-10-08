@@ -26,6 +26,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .menu:hover {
@@ -38,6 +39,17 @@ body {
   background-color: white;
   color: #4c3575;
   border-radius: 12px;
+}
+
+.sidenav{
+  position: absolute;
+  top: 0px;
+  left: 390px;
+  min-width: 220px;
+  border-radius: 12px;
+  background-color: #4c3575;
+  color: white;
+  transition: all .3s;
 }
 
 .form-container {

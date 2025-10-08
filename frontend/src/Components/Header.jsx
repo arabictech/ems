@@ -40,13 +40,43 @@ function Header() {
 
             <Image src={require('../images/logo2.png')}  className=' w-100 my-4 px-5'  fluid />
             <div className='fs-4 mt-4'>
-                <NavLink to='/' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><MdDashboard /> Dashboard</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='employee' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><IoPersonSharp /> Employees</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='attendance' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><FaNotesMedical /> Attendance</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='leave' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><SlCalender /> Leave</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='payroll' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><FaUsers /> Payroll</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='report' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><TbReportAnalytics /> Report</span> <TiArrowSortedDown /></NavLink>
-                <NavLink to='analytics' className='nav-link menu'><span className='d-flex gap-3 align-items-center' ><IoMdAnalytics /> Analytics</span> <TiArrowSortedDown /></NavLink>
+                <NavLink to='/' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <MdDashboard /> Dashboard</span> <TiArrowSortedDown />
+                </NavLink>
+
+                <NavLink to='employee' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <IoPersonSharp /> Employees</span> <TiArrowSortedDown />
+                  <div className='sidenav d-flex flex-column'>
+                      
+                        <NavLink className='nav-link menu'>hello</NavLink>
+                        <NavLink className='nav-link menu'>hello</NavLink>
+                        <NavLink className='nav-link menu'>hello</NavLink>
+                        <NavLink className='nav-link menu'>hello</NavLink>
+                        <NavLink className='nav-link menu'>hello</NavLink>
+                      
+                  </div>
+                </NavLink>
+
+                <NavLink to='attendance' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <FaNotesMedical /> Attendance</span> <TiArrowSortedDown />
+                </NavLink>
+
+                <NavLink to='leave' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <SlCalender /> Leave</span> <TiArrowSortedDown />
+                </NavLink>
+
+                <NavLink to='payroll' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <FaUsers /> Payroll</span> <TiArrowSortedDown />
+                </NavLink>
+
+                <NavLink to='report' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <TbReportAnalytics /> Report</span> <TiArrowSortedDown />
+                </NavLink>
+
+                <NavLink to='analytics' className='nav-link menu'><span className='d-flex gap-3 align-items-center' > 
+                  <IoMdAnalytics /> Analytics</span> <TiArrowSortedDown />
+                </NavLink>
+
             </div>
         </div>
           </Col>
