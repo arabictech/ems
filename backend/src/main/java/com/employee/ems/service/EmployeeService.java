@@ -18,32 +18,28 @@ public class EmployeeService {
     @Autowired
     private Employeerepo employeerepo;
 
-//    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+ //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
+
+    // Bulk insert
+    // Single insert (existing method)
 //    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
 //        Employees employees = toEntity(dto);
 //        Employees saved = employeerepo.save(employees);
 //        return toResponseDto(saved);
 //    }
-    
 
-    // Bulk insert
-    // Single insert (existing method)
-    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
+    public EmployeeResponseDto addEmployee(EmployeeRequestDto dto) {
         Employees employees = toEntity(dto);
         Employees saved = employeerepo.save(employees);
         return toResponseDto(saved);
     }
-
     // Bulk insert
-    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
-        return dtos.stream()
-                .map(dto -> addEmployees(dto)) // call single insert for each DTO
-                .collect(Collectors.toList());
-    }
-
-
-
+//    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
+//        return dtos.stream()
+//                .map(this::addEmployees) // call single insert for each DTO
+//                .collect(Collectors.toList());
+//    }
 
 
 
@@ -57,10 +53,15 @@ public class EmployeeService {
         dto.setPhone(employees.getPhone());
         dto.setDepartment(employees.getDepartment());
         dto.setDesignation(employees.getDesignation());
-      dto.setSalary(employees.getSalary());
-      //  dto.setJoin_date(employees.getJoin_date().format(formatter));
+        dto.setSalary(employees.getSalary());
+        dto.setJoin_date(String.valueOf(employees.getJoin_date()));
 
-        //dto.setJoin_date(employees.getJoin_date().format(formatter));
+        if (employees.getJoin_date() != null) {
+            dto.setJoin_date(String.valueOf(employees.getJoin_date()));
+        } else {
+            dto.setJoin_date(null);  // or set a default like "N/A"
+        }
+
         return dto;
     }
 
@@ -74,7 +75,7 @@ public class EmployeeService {
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
         employees.setSalary(dto.getSalary());
-      //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+       employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
         return employees;
     }
 
@@ -91,8 +92,8 @@ public class EmployeeService {
         employees.setPhone(dto.getPhone());
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
-       // employees.setSalary(dto.getSalary());
-       // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+        employees.setSalary(dto.getSalary());
+       employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
 
         Employees updated = employeerepo.save(employees);
         return toResponseDto(updated);
@@ -122,10 +123,10 @@ public class EmployeeService {
     }
 
 
+    public void deleteAllEmployees() {
+        employeerepo.deleteAll();
 
-
-
-
+    }
 
 }
 

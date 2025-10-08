@@ -26,6 +26,5 @@ public class Attendance {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate date;
-
     private String status;          //present,absent,leave
 }

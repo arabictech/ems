@@ -25,7 +25,7 @@ public class Leave {
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate start_date;
 
-@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate end_date;
 
     private String type;

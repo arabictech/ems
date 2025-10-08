@@ -20,11 +20,15 @@ public class EmployeeController {
 //    public EmployeeResponseDto addEmployees(@RequestBody  List<EmployeeRequestDto> dto) {
 //        return employeeService.addEmployees(dto);
 //    }
-    @PostMapping("/bulk")
-    public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
-        return employeeService.addEmployeesBulk(dtos);
-    }
+//    @PostMapping("/bulk")
+//    public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
+//        return employeeService.addEmployeesBulk(dtos);
+//    }
 
+    @PostMapping
+    public EmployeeResponseDto addEmployee(@RequestBody EmployeeRequestDto dto) {
+        return employeeService.addEmployee(dto);
+    }
 
 
 @GetMapping
@@ -43,6 +47,11 @@ public class EmployeeController {
     employeeService.deleteEmployee(id);
         return "Employee Deleted";
 }
+    @DeleteMapping
+    public String deleteAllEmployees() {
+        employeeService.deleteAllEmployees();
+        return "All Employees Deleted";
+    }
 
 
 
