@@ -16,19 +16,28 @@ function Dashboard() {
 
   const [recdel,setrecdel] = useState('');
   const [formdata,setformdata] = useState([])
+  console.log(formdata)
+
   
-  const handledelete = (del) =>{
-    const res = axios.delete(`http://localhost:8080/api/employees/${del}`)
-    toast.success('Employee data deleted')
-    console.log(res)
-  }
-  
-  useEffect(()=>{
+  const fetchEmployee = () =>{
     axios.get('http://localhost:8080/api/employees')
     .then((res)=>setformdata(res.data))
     .catch(err =>console.log(err))
-  },[handledelete])
+  }
 
+  useEffect(()=>{
+    fetchEmployee()
+  },[])
+
+  const handledelete = async(del) =>{
+    try {
+      const res = await axios.delete(`http://localhost:8080/api/employees/${del}`)
+      toast.success('Employee data deleted');
+      fetchEmployee()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
         <div className='main-content'>
@@ -58,8 +67,7 @@ function Dashboard() {
                           <td>{val.phone}</td>
                           <td>{val.email}</td>
                           <td>{val.department}</td>
-                          <td></td>
-                          {/* <td className='fs-4'><MdDelete onClick={()=>{handledelete(val.emp_id)}}/> <FaUserEdit /></td> */}
+                          <td>{new Date(val.join_date).toLocaleDateString('en-GB')}</td>
                           <td className='fs-4'><MdDelete onClick={()=>{handleShow(); setrecdel(val.emp_id)}}/> <FaUserEdit /></td>
                         </tr>
                       )

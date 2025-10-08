@@ -30,7 +30,7 @@ const Employee = () => {
         department:"",
         designation:"",
         salary:"",
-        // join_date:"",
+        join_date:"",
     }
     
     const {errors,values,touched,handleSubmit,handleChange,handleBlur,resetForm} = useFormik({
@@ -120,11 +120,11 @@ const Employee = () => {
                             <Form.Control type="number" placeholder="Salary" name='salary' value={values.salary} onChange={handleChange} onBlur={handleBlur} />
                             {(errors.salary && touched.salary) ? <span className='text-danger' style={{fontSize:12}} >{errors.salary}</span> : null}
                         </Form.Group>
-                        {/* <Form.Group as={Col} controlId="formGrid">
+                        <Form.Group as={Col} controlId="formGrid">
                             <Form.Label>Joining Date</Form.Label>
                             <Form.Control type="date" placeholder="Joining Date" name='join_date' value={values.join_date} onChange={handleChange} onBlur={handleBlur} />
                             {(errors.join_date && touched.join_date) ? <span className='text-danger' style={{fontSize:12}} >{errors.join_date}</span> : null}
-                        </Form.Group> */}
+                        </Form.Group>
                         
                     </Row>
                     
@@ -135,9 +135,9 @@ const Employee = () => {
                 </Form>
 
                 <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+                position="top-center"
+                reverseOrder={false}
+                />
             </div>
         </div>
 
