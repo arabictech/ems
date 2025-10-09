@@ -7,11 +7,21 @@ import { FaEdit } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 import MyVerticallyCenteredModal from './ModelsComponent/MyVerticallyCenteredModal';
 import { IoIosTimer } from "react-icons/io";
+import AdvancedExample from './ModelsComponent/ReactBPagination';
 
 
 const Attendance = () => {
 
     const [modalShow, setModalShow] = React.useState(false);
+
+    const employeeData = [
+        { employeeName: "Ankit"},
+        { employeeName: "Kamya" },
+        { employeeName: "Radha" },
+        { employeeName: "Naresh" },
+        { employeeName: "Aman" },
+        { employeeName: "Vora" },
+    ]
 
     return (
         <div className="main-content text-bold" >
@@ -26,8 +36,8 @@ const Attendance = () => {
                     <Button className='btn1 d-flex gap-2 align-items-center text-white' >Filter<FaCaretDown /></Button>
                 </div>
             </div>
-            <div style={{ padding: 20, border:'1px solid gray', borderRadius:"5px" }} >
-                <div className='d-flex gap-3' style={{paddingBottom:15}} >
+            <div style={{ padding: 20, border: '1px solid gray', borderRadius: "5px" }} >
+                <div className='d-flex gap-3' style={{ paddingBottom: 15 }} >
                     <span className='d-flex align-items-center gap-2'><SiTicktick size={14} className='text-success' /> Full Day Present</span>
                     <span className='d-flex align-items-center gap-2'><IoIosTimer size={18} className='text-warning' /> Half Day Present</span>
                     <span className='d-flex align-items-center gap-2'><IoCloseCircleOutline size={18} className='text-danger' />  Full Day Absence</span>
@@ -42,50 +52,23 @@ const Attendance = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }} >Ankit</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
-                            ))}
-                        </tr>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }} className='' >Kamya</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} >
-                                    {
-                                        index % 2 === 0 ?
-                                            <SiTicktick size={10} className="text-success" />
-                                            :
-                                            <IoCloseCircleOutline size={12} className="text-danger" />
-                                    }
-                                </td>
-                            ))}
-                        </tr>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Radha</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
-                            ))}
-                        </tr>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Naresh</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
-                            ))}
-                        </tr>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Aman</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
-                            ))}
-                        </tr>
-                        <tr>
-                            <td style={{ display: 'flex', paddingBottom: "15px", paddingTop: "15px" }}>Vora</td>
-                            {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
-                            ))}
-                        </tr>
+                        {
+                            employeeData?.sort()?.map((ele, idx) => {
+                                const keyData = Object.values(ele).sort()
+                                console.log("keyData-------------",keyData);
+                                
+                                return (
+                                    <tr>
+                                        <td style={{ display: 'flex-row', paddingBottom: "15px", paddingTop: "15px" }} >{ele.employeeName}</td>
+                                        {Array.from({ length: 31 }).map((ele, index) => (
+                                            <td key={index} style={{ paddingBottom: "15px", paddingTop: "15px" }} ><SiTicktick size={10} className='text-success' /></td>
+                                        ))}
+                                    </tr>
+                                )
+                            })
+                        }
                     </tbody>
+                    <AdvancedExample />
                 </Table>
             </div>
         </div>
