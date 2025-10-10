@@ -6,5 +6,5 @@ import lombok.Data;
 
 public class AttendanceRequestDto {
     private String status;
-    private String date; //cause give dd-MM-yyyy
+    private String date;
 }

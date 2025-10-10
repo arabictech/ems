@@ -12,12 +12,12 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table(name = "employees")
 public class Employees {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long emp_id;
     private String first_name;
     private String last_name;
+    private  String  gender;
     private String email;
     private String phone;
     private String department;
@@ -26,15 +26,6 @@ public class Employees {
 
    //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
    private LocalDate join_date;
-    //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
-    // private LocalDate join_date;
 
-
-    //If i want reverse mapping:
-    //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
-    //  private List<Leave> leaves;
-
-    //  @OneToMany(mappedBy = "employees", cascade = CascadeType.ALL)
-//private List<Attendance> attendances;
 
 }
