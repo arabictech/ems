@@ -4,16 +4,17 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Month;
-
 @Data
 @Getter
 @Setter
 public class PayRollResponseDto {
-    private int payroll_id;
-    private String month;
-    private double salary;
-    private double deduction;
-    private double net_salary;
-    private PayRollEmployeeDto payroll_employee;
+
+        private int payroll_id;
+        private String month;
+        private double salary;
+        private double deduction;
+        private double net_salary;
+        private PayRollEmployeeDto payroll_employee;
+
+
 }

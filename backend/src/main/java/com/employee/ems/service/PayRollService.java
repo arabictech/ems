@@ -4,7 +4,7 @@ import com.employee.ems.dto.PayRollEmployeeDto;
 import com.employee.ems.dto.PayRollResponseDto;
 import com.employee.ems.entity.Employees;
 import com.employee.ems.entity.PayRoll;
-import com.employee.ems.repository.Employeerepo;
+import com.employee.ems.repository.EmployeeRepo;
 import com.employee.ems.repository.PayRollRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,20 +18,20 @@ public class PayRollService {
     PayRollRepo payrollRepo;
 
     @Autowired
-    Employeerepo employeesRepo;
+    EmployeeRepo employeesRepo;
 
-    public static PayRollResponseDto getPayRollResponseDto(Employees existingEmp, PayRoll savedPayRoll) {
+    public static PayRollResponseDto getPayRollResponseDto(Employees employees, PayRoll payRoll) {
         PayRollEmployeeDto employeeDTO = new PayRollEmployeeDto(
-                (int) existingEmp.getEmp_id(),
-                existingEmp.getSalary()
+                (int) employees.getEmp_id(),
+                employees.getSalary()
         );
 
         PayRollResponseDto responseDto = new PayRollResponseDto();
-        responseDto.setPayroll_id((int) savedPayRoll.getPayroll_id());
-        responseDto.setMonth(String.valueOf(savedPayRoll.getMonth()));
-        responseDto.setSalary(savedPayRoll.getSalary());
-        responseDto.setDeduction(savedPayRoll.getDeduction());
-        responseDto.setNet_salary(savedPayRoll.getNet_salary());
+        responseDto.setPayroll_id((int) payRoll.getPayroll_id());
+        responseDto.setMonth(String.valueOf(payRoll.getMonth()));
+        responseDto.setSalary(payRoll.getSalary());
+        responseDto.setDeduction(payRoll.getDeduction());
+        responseDto.setNet_salary(payRoll.getNet_salary());
         responseDto.setPayroll_employee(employeeDTO);
         return responseDto;
     }

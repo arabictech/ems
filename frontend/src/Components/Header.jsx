@@ -48,7 +48,7 @@ function Header() {
                 
                 <NavLink to='employee' className='nav-link menu sub'><span className='d-flex gap-3 align-items-center' > 
                   <IoPersonSharp /> Employees</span> <TiArrowSortedDown />
-                  <div className='sidenav d-flex flex-column'>
+                  {/* <div className='sidenav d-flex flex-column'>
                       
                         <NavLink className='nav-link menu' to='emp1' >hello</NavLink>
                         <NavLink className='nav-link menu' to='emp2' >hello</NavLink>
@@ -56,7 +56,7 @@ function Header() {
                         <NavLink className='nav-link menu' to='emp4' >hello</NavLink>
                         <NavLink className='nav-link menu' to='emp5' >hello</NavLink>
                       
-                  </div>
+                  </div> */}
                 </NavLink>
                 
 

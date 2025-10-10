@@ -14,22 +14,22 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [recdel,setrecdel] = useState('');
-  const [formdata,setformdata] = useState([])
+  const [recdel, setrecdel] = useState('');
+  const [formdata, setformdata] = useState([])
   console.log(formdata)
 
-  
-  const fetchEmployee = () =>{
+
+  const fetchEmployee = () => {
     axios.get('http://localhost:8080/api/employees')
-    .then((res)=>setformdata(res.data))
-    .catch(err =>console.log(err))
+      .then((res) => setformdata(res.data))
+      .catch(err => console.log(err))
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchEmployee()
-  },[])
+  }, [])
 
-  const handledelete = async(del) =>{
+  const handledelete = async (del) => {
     try {
       const res = await axios.delete(`http://localhost:8080/api/employees/${del}`)
       toast.success('Employee data deleted');
@@ -40,48 +40,48 @@ function Dashboard() {
   }
   return (
     <>
-        <div className='main-content'>
-            <div className=' overflow-auto'>
-              <h3 className='fw-bold mb-4 border-bottom pb-3'>Employee Details</h3>
+      <div className='main-content'>
+        <div className=' overflow-auto'>
+          <h3 className='fw-bold mb-4 border-bottom pb-3'>Employee Details</h3>
 
-              <Table striped  className='' >
-                <thead>
-                  <tr>
-                    <th>EMP_ID</th>
-                    <th>NAME</th>
-                    <th>CONTACT NO</th>
-                    <th>EMAIL</th>
-                    <th>DEPT</th>
-                    <th>JOIN DATE</th>
-                    <th>ACTION</th>
-                  </tr>
-                </thead>
+          <Table striped className='' >
+            <thead>
+              <tr>
+                <th>EMP_ID</th>
+                <th>NAME</th>
+                <th>CONTACT NO</th>
+                <th>EMAIL</th>
+                <th>DEPT</th>
+                <th>JOIN DATE</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
 
-                <tbody>
-                   {
-                    formdata?.map((val,i)=>{
-                      return(
-                        <tr key={i}>
-                          <td>{val.emp_id}</td>
-                          <td>{val.first_name} {val.last_name}</td>
-                          <td>{val.phone}</td>
-                          <td>{val.email}</td>
-                          <td>{val.department}</td>
-                          <td>{new Date(val.join_date).toLocaleDateString('en-GB')}</td>
-                          <td className='fs-4'><MdDelete onClick={()=>{handleShow(); setrecdel(val.emp_id)}}/> <FaUserEdit /></td>
-                        </tr>
-                      )
-                    })
-                   }
-                </tbody>
-              </Table>
-            </div>       
-            <Toaster
-              position="top-center"
-              reverseOrder={false}
-            />     
+            <tbody>
+              {
+                formdata?.map((val, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{val.emp_id}</td>
+                      <td>{val.first_name} {val.last_name}</td>
+                      <td>{val.phone}</td>
+                      <td>{val.email}</td>
+                      <td>{val.department}</td>
+                      <td>{new Date(val.join_date).toLocaleDateString('en-GB')}</td>
+                      <td className='fs-4'><MdDelete onClick={() => { handleShow(); setrecdel(val.emp_id) }} /> <FaUserEdit /></td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </Table>
+        </div>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
 
-          <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Delete Confirmation </Modal.Title>
           </Modal.Header>
@@ -95,7 +95,7 @@ function Dashboard() {
             </Button>
           </Modal.Footer>
         </Modal>
-        </div>
+      </div>
     </>
   )
 }
