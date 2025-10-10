@@ -16,7 +16,7 @@ import React from "react";
 
 
 const EmployeeCard = () => {
-    const [modalShow, setModalShow] = React.useState(true);
+    const [modalShow, setModalShow] = React.useState(false);
 
     const data = [
         { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Ankit", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
