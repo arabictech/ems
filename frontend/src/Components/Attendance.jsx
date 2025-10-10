@@ -47,7 +47,7 @@ const Attendance = () => {
                         <tr>
                             <th>Employee</th>
                             {Array.from({ length: 31 }).map((_, index) => (
-                                <td key={index} style={{ fontSize: "12px" }}>{index}</td>
+                                <td key={index} style={{ fontSize: "12px" }}>{index + 1}</td>
                             ))}
                         </tr>
                     </thead>
@@ -68,7 +68,7 @@ const Attendance = () => {
                             })
                         }
                     </tbody>
-                    <AdvancedExample />
+                    {/* <AdvancedExample /> */}
                 </Table>
             </div>
         </div>

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,6 +24,8 @@ public class Employees {
     private String designation;
     private double salary;
 
+   //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
+   private LocalDate join_date;
     //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
     // private LocalDate join_date;
 
