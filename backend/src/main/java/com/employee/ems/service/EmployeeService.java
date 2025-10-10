@@ -3,20 +3,25 @@ package com.employee.ems.service;
 import com.employee.ems.dto.EmployeeRequestDto;
 import com.employee.ems.dto.EmployeeResponseDto;
 import com.employee.ems.entity.Employees;
-import com.employee.ems.repository.Employeerepo;
+import com.employee.ems.repository.EmployeeRepo;
+import com.employee.ems.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
     @Autowired
-    Employeerepo employeerepo;
+    EmployeeRepo employeerepo;
 
-//    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
+
+    // Bulk insert
+    // Single insert (existing method)
 //    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
 //        Employees employees = toEntity(dto);
 //        Employees saved = employeerepo.save(employees);
@@ -24,18 +29,22 @@ public class EmployeeService {
 //    }
 
 
-    // Bulk insert
-    // Single insert (existing method)
-    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
+    public EmployeeResponseDto addEmployee(EmployeeRequestDto dto) {
         Employees employees = toEntity(dto);
         Employees saved = employeerepo.save(employees);
         return toResponseDto(saved);
     }
-
     // Bulk insert
+//    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
+//        return dtos.stream()
+//                .map(this::addEmployees) // call single insert for each DTO
+//                .collect(Collectors.toList());
+//    }
+
+
     public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
         return dtos.stream()
-                .map(dto -> addEmployees(dto)) // call single insert for each DTO
+                .map(dto -> addEmployee(dto)) // call single insert for each DTO
                 .collect(Collectors.toList());
     }
 
@@ -51,9 +60,17 @@ public class EmployeeService {
         dto.setDepartment(employees.getDepartment());
         dto.setDesignation(employees.getDesignation());
         dto.setSalary(employees.getSalary());
+
+        dto.setJoin_date(String.valueOf(employees.getJoin_date()));
+
+        if (employees.getJoin_date() != null) {
+            dto.setJoin_date(String.valueOf(employees.getJoin_date()));
+        } else {
+            dto.setJoin_date(null);  // or set a default like "N/A"
+        }
         //  dto.setJoin_date(employees.getJoin_date().format(formatter));
 
-        //dto.setJoin_date(employees.getJoin_date().format(formatter));
+
         return dto;
     }
 
@@ -67,6 +84,7 @@ public class EmployeeService {
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
         employees.setSalary(dto.getSalary());
+        employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
         //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
         return employees;
     }
@@ -83,8 +101,12 @@ public class EmployeeService {
         employees.setPhone(dto.getPhone());
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
+        employees.setSalary(dto.getSalary());
+        employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
+
         // employees.setSalary(dto.getSalary());
         // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+
 
         Employees updated = employeerepo.save(employees);
         return toResponseDto(updated);
@@ -114,8 +136,12 @@ public class EmployeeService {
     }
 
 
-}
+    public void deleteAllEmployees() {
+        employeerepo.deleteAll();
 
+    }
+
+}
 //    public void DelEmployee(Long id) {
 //        employeerepo.deleteById(id);
 //    }
