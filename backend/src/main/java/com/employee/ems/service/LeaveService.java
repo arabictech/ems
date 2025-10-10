@@ -2,7 +2,7 @@ package com.employee.ems.service;
 
 import com.employee.ems.entity.Employees;
 import com.employee.ems.entity.Leave;
-import com.employee.ems.repository.Employeerepo;
+import com.employee.ems.repository.EmployeeRepo;
 import com.employee.ems.repository.LeaveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class LeaveService {
     @Autowired
     LeaveRepo leaveRepo;
     @Autowired
-    Employeerepo employeerepo;
+    EmployeeRepo employeerepo;
 
     public Leave addLeaves(long emp_id, Leave leaverRequest) {
         Employees employees = employeerepo.findById(emp_id)
