@@ -8,10 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PayRollResponseDto {
-    private int payroll_id;
-    private String month;
-    private double salary;
-    private double deduction;
-    private double net_salary;
-    private PayRollEmployeeDto payroll_employee;
+
+        private int payroll_id;
+        private String month;
+        private double salary;
+        private double deduction;
+        private double net_salary;
+        private PayRollEmployeeDto payroll_employee;
+
+
 }

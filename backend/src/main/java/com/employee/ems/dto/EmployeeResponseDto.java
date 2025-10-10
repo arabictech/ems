@@ -19,5 +19,11 @@ public class EmployeeResponseDto {
     private String department;
     private String designation;
     private double salary;
+
+    private String join_date;        //cause Convert into dd-MM-yyyy Format
+
+  //  private  SimpleEmployeeDto simpleEmployeeDto;
+
+
 }
 
