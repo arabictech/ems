@@ -121,7 +121,7 @@ export const SalarySlip = () => {
           <h6>Terms & Condition</h6>
           <span >Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</span>
           <Button variant="secondary" className="d-flex gap-2 align-items-center" style={{ float: 'right'}}><BsFillSendFill /> Send Innvoice </Button>
-          <Button className="d-flex gap-2 align-items-center" style={{ float: 'right', backgroundColor: '#4c3575', marginRight: '10px'}}> <LocalPrintshopIcon/> Print</Button>
+          <Button className="d-flex gap-2 align-items-center" style={{ float: 'right',border:'none', backgroundColor: '#4c3575', marginRight: '10px'}}> <LocalPrintshopIcon/> Print</Button>
           
         </div>
     

@@ -81,20 +81,20 @@ function Dashboard() {
               reverseOrder={false}
             />     
 
-        <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Confirmation </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete it ?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="danger" onClick={()=>{handleClose(); handledelete(recdel)}}>
-            Yes, delete it!
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Confirmation </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete it ?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={()=>{handleClose(); handledelete(recdel)}}>
+              Yes, delete it!
+            </Button>
+          </Modal.Footer>
+        </Modal>
         </div>
     </>
   )
