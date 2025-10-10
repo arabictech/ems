@@ -20,18 +20,18 @@ public class PayRollService {
     @Autowired
     Employeerepo employeesRepo;
 
-    public static PayRollResponseDto getPayRollResponseDto(Employees existingEmp, PayRoll savedPayRoll) {
+    public static PayRollResponseDto getPayRollResponseDto(Employees employees, PayRoll payRoll) {
         PayRollEmployeeDto employeeDTO = new PayRollEmployeeDto(
-                (int) existingEmp.getEmp_id(),
-                existingEmp.getSalary()
+                (int) employees.getEmp_id(),
+                employees.getSalary()
         );
 
         PayRollResponseDto responseDto = new PayRollResponseDto();
-        responseDto.setPayroll_id((int) savedPayRoll.getPayroll_id());
-        responseDto.setMonth(String.valueOf(savedPayRoll.getMonth()));
-        responseDto.setSalary(savedPayRoll.getSalary());
-        responseDto.setDeduction(savedPayRoll.getDeduction());
-        responseDto.setNet_salary(savedPayRoll.getNet_salary());
+        responseDto.setPayroll_id((int) payRoll.getPayroll_id());
+        responseDto.setMonth(String.valueOf(payRoll.getMonth()));
+        responseDto.setSalary(payRoll.getSalary());
+        responseDto.setDeduction(payRoll.getDeduction());
+        responseDto.setNet_salary(payRoll.getNet_salary());
         responseDto.setPayroll_employee(employeeDTO);
         return responseDto;
     }

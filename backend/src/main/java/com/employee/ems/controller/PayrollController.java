@@ -13,8 +13,8 @@ import java.util.List;
 import static com.employee.ems.service.PayRollService.getPayRollResponseDto;
 
 @RestController
-@RequestMapping("/api/payroll")
-@CrossOrigin(origins = "http://localhost:3000")                        //dnt use if write config
+    @RequestMapping("/api/payroll")
+@CrossOrigin(origins = "http://localhost:3000")                        //dnt use if write configXZ
 
 public class PayrollController {
 
