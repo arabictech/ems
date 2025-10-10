@@ -17,7 +17,7 @@ import Payroll from './Components/Payroll';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-flex">
       <Header />
       <Routes>
         <Route path='/' element={<Dashboard/>}/>
