@@ -7,10 +7,16 @@ import { FaCaretDown } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { FaClipboardList } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { BiSolidReport } from "react-icons/bi";
+import { BiBorderRadius, BiSolidReport } from "react-icons/bi";
 import CommonButton from './ModelsComponent/CommonComponent/CommonButton';
+import { MdDeleteForever, MdHeight } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import AddEmployeeForm from './ModelsComponent/AddEmployeeForm';
+import React from "react";
+
 
 const EmployeeCard = () => {
+    const [modalShow, setModalShow] = React.useState(true);
 
     const data = [
         { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Ankit", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
@@ -26,7 +32,11 @@ const EmployeeCard = () => {
             <div className='d-flex justify-content-between'>
                 <h3 className='fw-bold'>Employee</h3>
                 <div className='d-flex gap-2'>
-                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} />
+                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} buttonClick={() => setModalShow(true)} />
+                    <AddEmployeeForm
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                    />
                     <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaCaretDown />} variant={'secondary'} title={"Status"} />
                 </div>
             </div>
@@ -37,7 +47,7 @@ const EmployeeCard = () => {
                         data?.map((ele, idx) => {
                             return (
                                 <>
-                                    <Col lg={6} md={6} style={{marginBottom:"10px"}}>
+                                    <Col lg={6} md={6} style={{ marginBottom: "10px" }}>
                                         <Card>
                                             <Card.Body>
                                                 <div className='d-flex justify-content-between'>
@@ -59,9 +69,13 @@ const EmployeeCard = () => {
                                                         <span className='text-secondary small'>
                                                             {ele.description}
                                                         </span>
-                                                        <div className='d-flex mt-3 gap-2'>
-                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1'} icon={<FaPlus />} title={"Add Task"} />
-                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1'} icon={<CgProfile />} title={"Profile"} />
+                                                        <div className='d-flex mt-3 gap-2 '>
+                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1'} styleData={{height:"40px", borderRadius:"40px"}} icon={<CgProfile />} />
+                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1 bg-primary'} styleData={{height:"40px", borderRadius:"40px"}} icon={<FaEdit />} />
+                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1 bg-danger'} styleData={{height:"40px", borderRadius:"40px"}} icon={<MdDeleteForever />} />
+
+
+
                                                         </div>
                                                     </Col>
 
