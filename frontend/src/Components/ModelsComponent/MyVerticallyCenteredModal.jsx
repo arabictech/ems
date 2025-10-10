@@ -39,7 +39,7 @@ const MyVerticallyCenteredModal = (props) => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Select Date</Form.Label>
                         {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
-                        <Form.Control type="text" placeholder="name@example.com" />
+                        <Form.Control type="date" placeholder="name@example.com" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Attendance Type</Form.Label>
@@ -58,7 +58,7 @@ const MyVerticallyCenteredModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button className='d-flex ' style={{backgroundColor:"gray", borderRadius:'10px',fontSize:"14px"}} onClick={props.onHide}>Done</Button>
-                <Button className='btn1' onClick={props.onHide}>Save</Button>
+                <Button className='btn1' onClick={props.onHide} >Save</Button>
             </Modal.Footer>
         </Modal>
     )
