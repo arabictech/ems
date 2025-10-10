@@ -1,3 +1,4 @@
+
 package com.employee.ems.dto;
 
 import lombok.Data;
@@ -13,12 +14,11 @@ public class EmployeeRequestDto {
     private String phone;
     private String department;
     private String designation;
-<<<<<<< HEAD
-   private double salary;
-    private String join_date;      //cause Convert into dd-MM-yyyy Format
- }
-=======
+
     private double salary;
-    //  private String join_date;  //cause Convert into dd-MM-yyyy Format
+    private String join_date;      //cause Convert into dd-MM-yyyy Format
 }
->>>>>>> f5f9aef3bb52e28b61d8fd51fd9236ef7c34f34b
+
+//  private String join_date;  //cause Convert into dd-MM-yyyy Format
+
+

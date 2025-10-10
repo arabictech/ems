@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,13 +24,10 @@ public class Employees {
     private String designation;
     private double salary;
 
-<<<<<<< HEAD
    //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
    private LocalDate join_date;
-=======
     //@JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "dd-MM-yyyy")
     // private LocalDate join_date;
->>>>>>> f5f9aef3bb52e28b61d8fd51fd9236ef7c34f34b
 
 
     //If i want reverse mapping:
