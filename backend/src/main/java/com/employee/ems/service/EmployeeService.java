@@ -142,11 +142,5 @@ public class EmployeeService {
     }
 
 }
-//    public void DelEmployee(Long id) {
-//        employeerepo.deleteById(id);
-//    }
-//
-//    public Employees updateEmployees(Employees employees) {
-//        return  employeerepo.save(employees);
-//    }
+
 
