@@ -49,7 +49,7 @@ const EmployeeCard = () => {
                                 <>
                                     <Col lg={6} md={6} style={{ marginBottom: "10px" }}>
                                         <Card>
-                                            <Card.Body>
+                                            <Card.Body className="shadow">
                                                 <div className='d-flex justify-content-between'>
                                                     <Col xs={3} className='d-flex-column'>
                                                         <div className='d-flex justify-content-center mb-3'>
