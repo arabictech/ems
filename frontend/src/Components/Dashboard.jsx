@@ -90,7 +90,7 @@ function Dashboard() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="danger" onClick={() => { handleClose(); handledelete(recdel) }}>
+            <Button variant="danger" onClick={()=>{handleClose(); handledelete(recdel)}}>
               Yes, delete it!
             </Button>
           </Modal.Footer>

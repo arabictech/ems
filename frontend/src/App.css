@@ -7,7 +7,7 @@ body {
   min-height: 90vh;
   border-radius: 30px;
   margin: 30px;
-  padding: 0 12px;
+  padding: 0 12px ;
 }
 
 .main-content {
@@ -20,7 +20,6 @@ body {
 
 .menu {
   transition: .3s;
-  padding: 5px 0;
   margin-bottom: 22px;
   padding: 8px 30px;
   display: flex;
@@ -28,6 +27,7 @@ body {
   align-items: center;
   position: relative;
 }
+
 
 .menu:hover {
   background-color: white;
@@ -50,8 +50,15 @@ body {
   background-color: #4c3575;
   color: white;
   transition: all .3s;
+  visibility: hidden;
+  opacity: 0;
 }
 
+
+.sub-menu:hover .sidenav{
+  opacity: 1;
+  visibility: visible;
+}
 .form-container {
   background-color: white;
   padding: 10px;
@@ -87,7 +94,13 @@ body {
   color: black !important;
 }
 .nav-icon:hover{
-  transform: scale(1.2);
+  color: #4c3575 !important;
+  /* transform: scale(1.2); */
+}
+
+.dropmenu{
+  width: 300px;
+  border: n;
 }
 
 .login-container {
@@ -156,3 +169,6 @@ body {
   }
 }
 
+.no-caret::after {
+  display: none !important;
+}
