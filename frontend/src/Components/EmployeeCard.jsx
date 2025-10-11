@@ -2,80 +2,106 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { FaPlus } from "react-icons/fa6";
-import { FaCaretDown } from "react-icons/fa";
+import { FaPlus,FaPhone } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
-import { FaClipboardList } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-import { BiBorderRadius, BiSolidReport } from "react-icons/bi";
+import { FaClipboardList,FaStar,FaIdCardAlt,FaEdit } from "react-icons/fa";
+import {BiSolidReport } from "react-icons/bi";
 import CommonButton from './ModelsComponent/CommonComponent/CommonButton';
-import { MdDeleteForever, MdHeight } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever,MdEmail} from "react-icons/md";
 import AddEmployeeForm from './ModelsComponent/AddEmployeeForm';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Image from 'react-bootstrap/Image';
+import toast, { Toaster } from "react-hot-toast";
+import Modal from 'react-bootstrap/Modal';
+import { Link} from "react-router-dom";
 
 
 const EmployeeCard = () => {
+
     const [modalShow, setModalShow] = React.useState(false);
 
-    const data = [
-        { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Ankit", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-        { imagePath: "https://pixelwibes.com/template/my-task/html/dist/assets/images/lg/avatar8.jpg", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Kamya", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-        { imagePath: "https://pixelwibes.com/template/my-task/html/dist/assets/images/lg/avatar8.jpg", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Radha", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-        { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Naresh", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-        { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Aman", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-        { imagePath: "https://bootdey.com/img/Content/avatar/avatar7.png", icon1: <FaClipboardList />, icon2: <FaStar />, icon3: <BiSolidReport />, name: "Vora", buttonName: "Web Developer", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ante ipsum primis in faucibus orci luctus et ultrices" },
-    ]
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [formdata, setformdata] = useState([])
+    const [recdel, setrecdel] = useState('');
+    
+    const fetchEmployee = () => {
+        axios.get('http://localhost:8080/api/employees')
+        .then((res) => {setformdata(res.data); console.log(res.data)})
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        fetchEmployee()
+    }, [])
+
+    const handledelete = async (del) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/employees/${del}`)
+            toast.success('Employee data deleted');
+            fetchEmployee()
+        } 
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div className='main-content'>
             <div className='d-flex justify-content-between'>
-                <h3 className='fw-bold'>Employee</h3>
+                <h3 className='fw-bold'>Employees Details</h3>
                 <div className='d-flex gap-2'>
-                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} buttonClick={() => setModalShow(true)} />
                     <AddEmployeeForm
                         show={modalShow}
                         onHide={() => setModalShow(false)}
                     />
-                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaCaretDown />} variant={'secondary'} title={"Status"} />
                 </div>
             </div>
             <hr />
             <div className='card-container'>
                 <Row>
+                    <div className="d-flex gap-3 justify-content-end mb-4">
+                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} buttonClick={() => setModalShow(true)} />
+                    </div>
                     {
-                        data?.map((ele, idx) => {
+                        formdata?.map((ele,index) => {
                             return (
                                 <>
-                                    <Col lg={6} md={6} style={{ marginBottom: "10px" }}>
-                                        <Card>
+                                    <Col lg={6} md={6} style={{ marginBottom: "10px" }} key={index}>
+                                        <Card >
                                             <Card.Body className="shadow">
-                                                <div className='d-flex justify-content-between'>
-                                                    <Col xs={3} className='d-flex-column'>
-                                                        <div className='d-flex justify-content-center mb-3'>
-                                                            <img src={`${ele.imagePath}`} alt='profile' className='profile-image' />
-                                                        </div>
+                                                <div className=' d-lg-flex justify-content-between'>
+                                                    <Col sm={3} className='d-flex-column'>
+                                                        <div className='d-flex justify-content-center align-items-center gap-3 flex-column'>
+                                                            {ele.gender === 'Male' ? <Image className="profile-image" src={require('../images/male.png')} fluid /> : <Image className="profile-image" src={require('../images/female.jpg')} fluid />}
+
+                                                        <span className="d-flex align-items-center gap-2 text-center"><FaIdCardAlt />: {ele.emp_id}</span>
+                                                        
                                                         <div className='gap-3 d-flex justify-content-center '>
-                                                            {ele.icon1}
-                                                            {ele.icon2}
-                                                            {ele.icon3}
+                                                            <FaClipboardList />
+                                                            <FaStar />
+                                                            <BiSolidReport />
+                                                        </div>
                                                         </div>
                                                     </Col>
-                                                    <Col xs={1} className='vr' style={{ marginRight: '10px' }}></Col>
-                                                    <Col xs={9} >
-                                                        <div className='fw-bold fs-5'>{ele.name}</div>
-                                                        <Button style={{ backgroundColor: '#e5daf7', color: 'black', border: 'none', fontSize: '12px', marginBottom: '0' }}>Web Developer</Button>
+                                                    <Col sm={1} className='vr' style={{ marginRight: '10px' }}></Col>
+                                                    
+                                                    <Col sm={9} >
+                                                        <div className='fw-bold fs-3'>{ele.first_name} {ele.last_name}</div>
+                                                          <Button style={{ backgroundColor: '#e5daf7', color: 'black', border: 'none', fontSize: '12px',marginTop:'10px'}}>{ele.designation}</Button>
                                                         <hr />
-                                                        <span className='text-secondary small'>
-                                                            {ele.description}
-                                                        </span>
+                                                        <div className="d-flex flex-column small">
+                                                            <span><FaPhone /> {ele.phone}</span>
+                                                            <span><MdEmail /> {ele.email}</span>
+                                                        </div>
+                                                        
                                                         <div className='d-flex mt-3 gap-2 '>
-                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1'} styleData={{height:"40px", borderRadius:"40px"}} icon={<CgProfile />} />
-                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1 bg-primary'} styleData={{height:"40px", borderRadius:"40px"}} icon={<FaEdit />} />
-                                                            <CommonButton classData={'btn1 d-flex align-items-center gap-1 bg-danger'} styleData={{height:"40px", borderRadius:"40px"}} icon={<MdDeleteForever />} />
-
-
-
+                                                            <Link to={`/profile/${ele.emp_id}`}><Button className=" rounded-5" variant="primary" ><CgProfile /></Button></Link>
+                                                            <Button className=" rounded-5" variant="warning" onClick={()=>{setModalShow(true); sessionStorage.setItem('edit',JSON.stringify(ele));}}><FaEdit /></Button>
+                                                            <Button className=" rounded-5" variant="danger" onClick={()=>{handleShow(); setrecdel(ele.emp_id)}}><MdDeleteForever /></Button>
                                                         </div>
                                                     </Col>
 
@@ -89,9 +115,26 @@ const EmployeeCard = () => {
                     }
                 </Row>
             </div>
+            
+            <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Delete Confirmation </Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Are you sure you want to delete it ?</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Close
+                        </Button>
+                        <Button variant="danger" onClick={()=>{handleClose(); handledelete(recdel)}}>
+                          Yes, delete it!
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
 
-
-
+        <Toaster
+            position="top-center"
+            reverseOrder={false}
+        />
 
         </div>
     )

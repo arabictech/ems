@@ -23,8 +23,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<AdminDashboard/>}/>
-        <Route path='employee' element={<EmployeeCard />}/>
         {/* <Route path='employee' element={<Employee />}/> */}
+        <Route path='/' element={<Dashboard/>}/>
         <Route path='leave' element={<LeaveForm />}/>
         <Route path='login' element={<Login />}/>
         {/* <Route path='payroll' element={<RegisterForm />}/>  */}
@@ -35,6 +35,8 @@ function App() {
         <Route path='analytics' element={<SalarySlip />}/>
         <Route path='report' element={<Profile />}/>
         <Route path='payroll' element={<TextControlsExample />}/>
+        <Route path='employee' element={<EmployeeCard />}/>
+        <Route path='profile/:id' element={<Profile />}/>
       </Routes>
     </div>
   );

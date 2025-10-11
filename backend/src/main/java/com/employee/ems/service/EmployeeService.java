@@ -17,36 +17,12 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo employeerepo;
 
-    //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-
-    // Bulk insert
-    // Single insert (existing method)
-//    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
-//        Employees employees = toEntity(dto);
-//        Employees saved = employeerepo.save(employees);
-//        return toResponseDto(saved);
-//    }
-
-
     public EmployeeResponseDto addEmployee(EmployeeRequestDto dto) {
         Employees employees = toEntity(dto);
         Employees saved = employeerepo.save(employees);
         return toResponseDto(saved);
     }
-    // Bulk insert
-//    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
-//        return dtos.stream()
-//                .map(this::addEmployees) // call single insert for each DTO
-//                .collect(Collectors.toList());
-//    }
 
-
-//    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
-//        return dtos.stream()
-//                .map(dto -> addEmployee(dto)) // call single insert for each DTO
-//                .collect(Collectors.toList());
-//    }
 
     public EmployeeResponseDto updateEmployee(Long id, EmployeeRequestDto dto) {
         Employees employees = employeerepo.findById(id)
@@ -62,9 +38,6 @@ public class EmployeeService {
         employees.setDesignation(dto.getDesignation());
         employees.setSalary(dto.getSalary());
         employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
-
-        // employees.setSalary(dto.getSalary());
-        // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
 
         Employees updated = employeerepo.save(employees);
         return toResponseDto(updated);
@@ -139,11 +112,5 @@ public class EmployeeService {
     }
 
 }
-//    public void DelEmployee(Long id) {
-//        employeerepo.deleteById(id);
-//    }
-//
-//    public Employees updateEmployees(Employees employees) {
-//        return  employeerepo.save(employees);
-//    }
+
 
