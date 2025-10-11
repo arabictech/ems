@@ -14,13 +14,14 @@ import DatePicker from './Components/DatePicker';
 import EmployeeCard from './Components/EmployeeCard';
 import Profile from './Components/Profile';
 import Payroll from './Components/Payroll';
+import AdminDashboard from './Components/AdminDashboard';
 
 function App() {
   return (
     <div className="App container-flex">
       <Header />
       <Routes>
-        <Route path='/' element={<Dashboard/>}/>
+        <Route path='/' element={<AdminDashboard/>}/>
         <Route path='employee' element={<EmployeeCard />}/>
         {/* <Route path='employee' element={<Employee />}/> */}
         <Route path='leave' element={<LeaveForm />}/>
@@ -30,8 +31,6 @@ function App() {
         {/* <Route path='date-picker' element={<DatePicker />}/> */}
         <Route path='attendance' element={<Login />}/>
         {/* <Route path='payroll' element={<Payroll />}/> */}
-        {/* <Route path='payroll' element={<EmployeeCard />}/> */}
-        <Route path='employee' element={<EmployeeCard />}/>
         <Route path='analytics' element={<SalarySlip />}/>
         <Route path='report' element={<Profile />}/>
       </Routes>
