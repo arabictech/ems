@@ -21,8 +21,6 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Dashboard/>}/>
-        <Route path='employee' element={<EmployeeCard />}/>
-        {/* <Route path='employee' element={<Employee />}/> */}
         <Route path='leave' element={<LeaveForm />}/>
         <Route path='login' element={<Login />}/>
         {/* <Route path='payroll' element={<RegisterForm />}/>  */}
@@ -30,10 +28,9 @@ function App() {
         {/* <Route path='date-picker' element={<DatePicker />}/> */}
         <Route path='attendance' element={<Login />}/>
         {/* <Route path='payroll' element={<Payroll />}/> */}
-        {/* <Route path='payroll' element={<EmployeeCard />}/> */}
         <Route path='employee' element={<EmployeeCard />}/>
         <Route path='analytics' element={<SalarySlip />}/>
-        <Route path='report' element={<Profile />}/>
+        <Route path='profile/:id' element={<Profile />}/>
       </Routes>
     </div>
   );
