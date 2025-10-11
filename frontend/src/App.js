@@ -14,6 +14,7 @@ import DatePicker from './Components/DatePicker';
 import EmployeeCard from './Components/EmployeeCard';
 import Profile from './Components/Profile';
 import Payroll from './Components/Payroll';
+import TextControlsExample from './Components/AttendenceData';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='employee' element={<EmployeeCard />}/>
         <Route path='analytics' element={<SalarySlip />}/>
         <Route path='report' element={<Profile />}/>
+        <Route path='payroll' element={<TextControlsExample />}/>
       </Routes>
     </div>
   );
