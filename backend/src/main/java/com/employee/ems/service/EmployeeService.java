@@ -17,76 +17,10 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo employeerepo;
 
-    //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-
-    // Bulk insert
-    // Single insert (existing method)
-//    public EmployeeResponseDto addEmployees(EmployeeRequestDto dto) {
-//        Employees employees = toEntity(dto);
-//        Employees saved = employeerepo.save(employees);
-//        return toResponseDto(saved);
-//    }
-
-
     public EmployeeResponseDto addEmployee(EmployeeRequestDto dto) {
         Employees employees = toEntity(dto);
         Employees saved = employeerepo.save(employees);
         return toResponseDto(saved);
-    }
-    // Bulk insert
-//    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
-//        return dtos.stream()
-//                .map(this::addEmployees) // call single insert for each DTO
-//                .collect(Collectors.toList());
-//    }
-
-
-    public List<EmployeeResponseDto> addEmployeesBulk(List<EmployeeRequestDto> dtos) {
-        return dtos.stream()
-                .map(dto -> addEmployee(dto)) // call single insert for each DTO
-                .collect(Collectors.toList());
-    }
-
-
-    //  Entity -> ResponseDTO Mapper
-    private EmployeeResponseDto toResponseDto(Employees employees) {
-        EmployeeResponseDto dto = new EmployeeResponseDto();
-        dto.setEmp_id(employees.getEmp_id());
-        dto.setFirst_name(employees.getFirst_name());
-        dto.setLast_name(employees.getLast_name());
-        dto.setEmail(employees.getEmail());
-        dto.setPhone(employees.getPhone());
-        dto.setDepartment(employees.getDepartment());
-        dto.setDesignation(employees.getDesignation());
-        dto.setSalary(employees.getSalary());
-
-        dto.setJoin_date(String.valueOf(employees.getJoin_date()));
-
-        if (employees.getJoin_date() != null) {
-            dto.setJoin_date(String.valueOf(employees.getJoin_date()));
-        } else {
-            dto.setJoin_date(null);  // or set a default like "N/A"
-        }
-        //  dto.setJoin_date(employees.getJoin_date().format(formatter));
-
-
-        return dto;
-    }
-
-    // DTO -> Entity Mapper
-    private Employees toEntity(EmployeeRequestDto dto) {
-        Employees employees = new Employees();
-        employees.setFirst_name(dto.getFirst_name());
-        employees.setLast_name(dto.getLast_name());
-        employees.setEmail(dto.getEmail());
-        employees.setPhone(dto.getPhone());
-        employees.setDepartment(dto.getDepartment());
-        employees.setDesignation(dto.getDesignation());
-        employees.setSalary(dto.getSalary());
-        employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
-        //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
-        return employees;
     }
 
 
@@ -97,16 +31,13 @@ public class EmployeeService {
         // update fields
         employees.setFirst_name(dto.getFirst_name());
         employees.setLast_name(dto.getLast_name());
+        employees.setGender(dto.getGender());
         employees.setEmail(dto.getEmail());
         employees.setPhone(dto.getPhone());
         employees.setDepartment(dto.getDepartment());
         employees.setDesignation(dto.getDesignation());
         employees.setSalary(dto.getSalary());
         employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
-
-        // employees.setSalary(dto.getSalary());
-        // employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
-
 
         Employees updated = employeerepo.save(employees);
         return toResponseDto(updated);
@@ -141,6 +72,48 @@ public class EmployeeService {
 
     }
 
+<<<<<<< HEAD
+=======
+    //  Entity -> ResponseDTO Mapper
+    private EmployeeResponseDto toResponseDto(Employees employees) {
+        EmployeeResponseDto dto = new EmployeeResponseDto();
+        dto.setEmp_id(employees.getEmp_id());
+        dto.setFirst_name(employees.getFirst_name());
+        dto.setLast_name(employees.getLast_name());
+        dto.setGender(employees.getGender());
+        dto.setEmail(employees.getEmail());
+        dto.setPhone(employees.getPhone());
+        dto.setDepartment(employees.getDepartment());
+        dto.setDesignation(employees.getDesignation());
+        dto.setSalary(employees.getSalary());
+        dto.setJoin_date(String.valueOf(employees.getJoin_date()));
+
+        if (employees.getJoin_date() != null) {
+            dto.setJoin_date(String.valueOf(employees.getJoin_date()));
+        } else {
+            dto.setJoin_date(null);  // or set a default like "N/A"
+        }
+        //  dto.setJoin_date(employees.getJoin_date().format(formatter));
+        return dto;
+    }
+
+    // DTO -> Entity Mapper
+    private Employees toEntity(EmployeeRequestDto dto) {
+        Employees employees = new Employees();
+        employees.setFirst_name(dto.getFirst_name());
+        employees.setLast_name(dto.getLast_name());
+        employees.setGender(dto.getGender());
+        employees.setEmail(dto.getEmail());
+        employees.setPhone(dto.getPhone());
+        employees.setDepartment(dto.getDepartment());
+        employees.setDesignation(dto.getDesignation());
+        employees.setSalary(dto.getSalary());
+        employees.setJoin_date(LocalDate.parse(dto.getJoin_date()));
+        //  employees.setJoin_date(LocalDate.parse(dto.getJoin_date(), formatter));
+        return employees;
+    }
+
+>>>>>>> 666f1c2ad8d08d83edf8e6be0dc7dcdd5866071e
 }
 
 

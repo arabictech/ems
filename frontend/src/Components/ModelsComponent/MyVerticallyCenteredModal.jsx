@@ -58,7 +58,7 @@ const MyVerticallyCenteredModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button className='d-flex ' style={{backgroundColor:"gray", borderRadius:'10px',fontSize:"14px"}} onClick={props.onHide}>Done</Button>
-                <Button className='btn1' onClick={props.onHide}>Save</Button>
+                <Button className='btn1' onClick={props.onHide} >Save</Button>
             </Modal.Footer>
         </Modal>
     )

@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import * as yup from "yup";
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { useEffect } from 'react';
 
 let validate = yup.object({
     first_name: yup.string().required("First name is required!"),
@@ -16,43 +17,64 @@ let validate = yup.object({
     department: yup.string().required("Department is required!"),
     designation: yup.string().required("Designation is required!"),
     salary: yup.string().required("Salary is required!"),
-    // join_date: yup.string().required("Joining Date is required!"),
+    join_date: yup.string().required("Joining Date is required!"),
 })
 
 const AddEmployeeForm = (props) => {
 
-
-
     let inpFields = {
+        emp_id:'',
         first_name: "",
         last_name: "",
         email: "",
         phone: "",
+        gender:'',
         department: "",
         designation: "",
         salary: "",
         join_date: "",
     }
 
-    const { errors, values, touched, handleSubmit, handleChange, handleBlur, resetForm } = useFormik({
+    const { errors, values, touched, handleSubmit, handleChange, handleBlur, resetForm,setValues } = useFormik({
         initialValues: inpFields,
         validationSchema: validate,
         onSubmit: async (values) => {
-            //   console.log(values)
-            try {
+
+            if(values.emp_id){
+                try {
+                    await axios.put(`http://localhost:8080/api/employees/${values.emp_id}`,values)
+                    resetForm();
+                    toast.success('Employee Update Successfully')
+                    setTimeout(()=>{
+                        sessionStorage.removeItem('edit')
+                    })
+                } catch (err) {
+                    toast.error('Error while adding employee')
+                    console.error("Error while adding employee:", err);
+                }
+            }
+            else{
+                try {
                 const res = await axios.post("http://localhost:8080/api/employees", values);
                 toast.success('Employee Added Successfully')
                 resetForm();
                 console.log("Employee Added Successfully:", res.data);
-            } catch (err) {
-                toast.error('Error while adding employee')
-                console.error("Error while adding employee:", err);
+                } catch (err) {
+                    toast.error('Error while adding employee')
+                    console.error("Error while adding employee:", err);
+                }
             }
+            
         }
     });
 
-
-
+    useEffect(()=>{
+        const editinfo = JSON.parse(sessionStorage.getItem('edit'))
+        
+        if(editinfo){
+            setValues(editinfo)
+        }
+    },[])
     return (
         <Modal
             {...props}
@@ -60,9 +82,9 @@ const AddEmployeeForm = (props) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header closeButton onClick={()=>{sessionStorage.removeItem('edit')}}>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Add Employee
+                    {values.emp_id ? 'Edit Employee' : 'Add Employee'}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -103,9 +125,8 @@ const AddEmployeeForm = (props) => {
                             <div className='d-flex' >
                                 <Form.Label>Gender : </Form.Label>
                             </div>
-                            <Form.Check type="radio" label="Male" value="male" id='male' name='gender' ></Form.Check>
-                            <Form.Check type="radio" label="Female" value="female" id="female" name='gender'></Form.Check>
-                            <Form.Check type="radio" label="Other" value="other" id="other" name='gender'></Form.Check>
+                            <Form.Check type="radio" label="Male" value="male" id='male' name='gender' onChange={handleChange} onBlur={handleBlur}></Form.Check>
+                            <Form.Check type="radio" label="Female" value="female" id="female" name='gender' onChange={handleChange} onBlur={handleBlur}></Form.Check>
                         </Form.Group>
                     </Row>
                     <Row className='mb-4'>
@@ -152,7 +173,7 @@ const AddEmployeeForm = (props) => {
 
 
                     <Button className='btn1 w-100' variant="primary" type="submit">
-                        Add Employee
+                        {values.emp_id ? 'Edit' : 'Add'}
                     </Button>
                 </Form>
                 <Toaster
