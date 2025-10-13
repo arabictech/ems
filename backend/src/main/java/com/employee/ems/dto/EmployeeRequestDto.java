@@ -17,9 +17,8 @@ public class EmployeeRequestDto {
     private String designation;
 
     private double salary;
-    private String join_date;      //cause Convert into dd-MM-yyyy Format
+    private String join_date;
 }
 
-//  private String join_date;  //cause Convert into dd-MM-yyyy Format
 
 

@@ -13,20 +13,16 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "leaves")   //  renamed from "leave"
+@Table(name = "leaves",
+uniqueConstraints = @UniqueConstraint(columnNames = {"emp_id", "start_date", "end_date"}))
 @Builder
 public class Leave {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long leave_id;
-    // private  long emp_id;
-
     private LocalDate start_date;
-
-
     private LocalDate end_date;
-
     private String type;
     private String status;
 
