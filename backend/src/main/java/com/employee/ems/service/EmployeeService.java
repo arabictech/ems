@@ -72,8 +72,7 @@ public class EmployeeService {
 
     }
 
-<<<<<<< HEAD
-=======
+
     //  Entity -> ResponseDTO Mapper
     private EmployeeResponseDto toResponseDto(Employees employees) {
         EmployeeResponseDto dto = new EmployeeResponseDto();
@@ -113,7 +112,7 @@ public class EmployeeService {
         return employees;
     }
 
->>>>>>> 666f1c2ad8d08d83edf8e6be0dc7dcdd5866071e
+
 }
 
 

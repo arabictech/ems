@@ -37,7 +37,7 @@ const Profile = () => {
                         <Col lg={2} md={12} className=' border-end'>
                             <div className='d-flex-column justify-content-center align-items-center' style={{ padding: '10px' }} >
                                     <div className='d-flex justify-content-center mb-2'>
-                                        {pro.gender === 'Male' ? <Image className='profile-image' src={require('../images/male.png')} fluid /> : <Image className='profile-image' src={require('../images/female.jpg')} fluid />}
+                                        {pro.gender === 'male' ? <Image className='profile-image' src={require('../images/male.png')} fluid /> : <Image className='profile-image' src={require('../images/female.jpg')} fluid />}
                                     </div>
                                     <div className='text-center'>
                                         <span>{pro.designation}</span>

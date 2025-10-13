@@ -17,15 +17,7 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    //
-//    @PostMapping
-//    public EmployeeResponseDto addEmployees(@RequestBody  List<EmployeeRequestDto> dto) {
-//        return employeeService.addEmployees((EmployeeRequestDto) dto);
-//    }
-//    @PostMapping("/bulk")
-//    public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
-//        return employeeService.addEmployeesBulk(dtos);
-//    }
+
 
     @PostMapping
     public EmployeeResponseDto addEmployee(@RequestBody EmployeeRequestDto dto) {
@@ -43,12 +35,6 @@ public class EmployeeController {
     public EmployeeResponseDto getEmployeeById(@PathVariable long id) {
         return employeeService.getEmployeeById(id);
     }
-
-//    @PostMapping
-//    public List<EmployeeResponseDto> addEmployees(@RequestBody List<EmployeeRequestDto> dtos) {
-//        return employeeService.addEmployeesBulk(dtos);
-//    }
-
 
 
     @DeleteMapping("{id}")
