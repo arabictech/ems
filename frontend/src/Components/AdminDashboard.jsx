@@ -5,9 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardBody from 'react-bootstrap/esm/CardBody';
 import { BsThreeDotsVertical } from "react-icons/bs";
-import Detail from './ModelsComponent/Detail';
-
-
 
 const AdminDashboard = () => {
     const [modalShow, setModalShow] = React.useState(false);
