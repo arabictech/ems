@@ -58,10 +58,6 @@ function App() {
 
         </Row>
       </Container>
-
-      {/* <Header /> */}
-    </div>
-  );
-}
-
+      </div>
+)}
 export default App;
