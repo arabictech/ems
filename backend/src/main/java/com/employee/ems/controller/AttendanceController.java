@@ -16,14 +16,6 @@ public class AttendanceController {
 
     @Autowired
     AttendanceService attendanceService;
-
-
-//    @PostMapping
-//    public Attendance addAttendance(@RequestBody Attendance attendance){
-//   return attendanceService.addAttendance(attendance);
-//    }
-
-
     // Mark attendance for employee
     @PostMapping("/{empId}")
     public AttendanceResponseDto markAttendance(@PathVariable long empId,

@@ -17,8 +17,11 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7da18320ca2a5c1b489e2d0ab9c6ee22e6b2b965
     @PostMapping
     public EmployeeResponseDto addEmployee(@RequestBody EmployeeRequestDto dto) {
         return employeeService.addEmployee(dto);
@@ -36,7 +39,10 @@ public class EmployeeController {
         return employeeService.getEmployeeById(id);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7da18320ca2a5c1b489e2d0ab9c6ee22e6b2b965
     @DeleteMapping("{id}")
     public String DelEmployees(@PathVariable Long id) {
         employeeService.deleteEmployee(id);

@@ -35,13 +35,12 @@ public class AttendanceService {
         attendance.setDate(LocalDate.parse(request.getDate()));
 
         Attendance saved = attendanceRepo.save(attendance);
-
         return mapToResponse(saved);
 
     }
 
         public Attendance addAttendance (Attendance attendance){
-            // fetch existing emp from db
+            // fetch exist emp from db
             Long empId = attendance.getEmployees().getEmp_id();
             Employees existingEmp = employeerepo.findById(empId)
                     .orElseThrow(() -> new RuntimeException("Employee not found with id " + empId));
@@ -51,12 +50,8 @@ public class AttendanceService {
             return attendanceRepo.save(attendance);
         }
 
-//        public List<Attendance> getAllAttendance () {
-//            return attendanceRepo.findAll();
-//        }
 
         //  Get all attendance records
-
         public List<AttendanceResponseDto> getAllAttendance (Attendance attendance) {
             return attendanceRepo.findAll()
                     .stream()
@@ -73,7 +68,7 @@ public class AttendanceService {
                     .collect(Collectors.toList());
         }
 
-        // ➤ Convert Entity → ResponseDto
+        //  Convert Entity → ResponseDto
         private AttendanceResponseDto mapToResponse (Attendance attendance){
             AttendanceResponseDto dto = new AttendanceResponseDto();
             dto.setAtt_id(attendance.getAtt_id());

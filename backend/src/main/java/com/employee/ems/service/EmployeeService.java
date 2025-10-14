@@ -4,7 +4,6 @@ import com.employee.ems.dto.EmployeeRequestDto;
 import com.employee.ems.dto.EmployeeResponseDto;
 import com.employee.ems.entity.Employees;
 import com.employee.ems.repository.EmployeeRepo;
-import com.employee.ems.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -90,9 +89,8 @@ public class EmployeeService {
         if (employees.getJoin_date() != null) {
             dto.setJoin_date(String.valueOf(employees.getJoin_date()));
         } else {
-            dto.setJoin_date(null);  // or set a default like "N/A"
+            dto.setJoin_date(null + "Not Present");
         }
-        //  dto.setJoin_date(employees.getJoin_date().format(formatter));
         return dto;
     }
 
