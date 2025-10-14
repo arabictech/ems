@@ -4,11 +4,11 @@ import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function AttendanceTable({employeeData}) {
-    
+function AttendanceTable({ employeeData, searchItem }) {
+
     const [employeeIdx, setEmployeeIdx] = useState([])
-    console.log("employeeIdx--------------",employeeIdx);
-    
+    console.log("employeeIdx--------------", employeeIdx);
+
     const [startDate, setStartDate] = useState(new Date());
 
     const addAction = (employeeIndex) => {
@@ -31,7 +31,11 @@ function AttendanceTable({employeeData}) {
             </thead>
             <tbody>
                 {
-                    employeeData?.map((ele, idx) => {
+                    employeeData?.filter((item) => {
+                        return searchItem.toLowerCase() === ''
+                            ? item
+                            : item.employeeName.toLowerCase().includes(searchItem);
+                    }).map((ele, idx) => {
                         return (
                             <tr>
                                 <td>{ele.empId}</td>
@@ -41,7 +45,6 @@ function AttendanceTable({employeeData}) {
                                     {[{ variantData: "primary", data: "Present" }, { variantData: "secondary", data: "Absent" }, { variantData: "warning", data: "Sick" }, { variantData: "danger", data: "Leave" }].map((el, ind) => {
                                         return (
                                             <>
-                                                {/* {employeeIdx?.empIdx === idx ? <Button variant={el.variantData} >{employeeIdx.data}</Button> : <Button variant={el.variantData} onClick={()=>addAction({empIdx:idx,data:el})} >{el.data}</Button>} */}
                                                 <Button variant={el.variantData} onClick={() => addAction({ empIdx: idx, buttonIdx: ind, data: el })} >{el.data}</Button>
                                             </>
                                         )

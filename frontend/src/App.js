@@ -42,13 +42,13 @@ function App() {
                 <Route path='leave' element={<LeaveForm />}/>
                 <Route path='login' element={<Login />}/>
                 {/* <Route path='payroll' element={<RegisterForm />}/>  */}
-                <Route path='attendance' element={<Attendance />}/>
+                <Route path='month-attendance' element={<Attendance />}/>
                 {/* <Route path='date-picker' element={<DatePicker />}/> */}
-                <Route path='attendance' element={<Login />}/>
+                {/* <Route path='attendance' element={<Login />}/> */}
                 {/* <Route path='payroll' element={<Payroll />}/> */}
                 <Route path='analytics' element={<SalarySlip />}/>
                 <Route path='report' element={<Report />}/>
-                <Route path='payroll' element={<TextControlsExample />}/>
+                <Route path='attendance' element={<TextControlsExample />}/>
                 <Route path='employee' element={<EmployeeCard />}/>
                 <Route path='profile/:id' element={<Profile />}/>
               </Routes>
