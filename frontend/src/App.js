@@ -7,14 +7,14 @@ import Employee from "./Components/Employees";
 import LeaveForm from "./Components/LeaveForm";
 import Login from "./Components/Login";
 import RegisterForm from "./Components/RegisterForm";
-import Attendance from "./Components/Attendance";
+import Attendance from "./Components/ModelsComponent/AttendanceComponents/Attendance";
 // import Payroll from './Components/Payroll';
 import { SalarySlip } from "./Components/SalarySlip";
 import DatePicker from "./Components/DatePicker";
 import EmployeeCard from "./Components/EmployeeCard";
 import Profile from "./Components/Profile";
 import Payroll from "./Components/Payroll";
-import TextControlsExample from "./Components/AttendenceData";
+import TextControlsExample from "./Components/ModelsComponent/AttendanceComponents/AttendenceData";
 import AdminDashboard from "./Components/AdminDashboard";
 import Slider from "./Components/Slider";
 import Container from "react-bootstrap/Container";
@@ -25,7 +25,6 @@ function App() {
   return (
     <div className="App">
       <Container fluid className="">
-
         <Row>
 
           <Col className="" lg={3} md={12} sm={12}>
@@ -59,5 +58,6 @@ function App() {
         </Row>
       </Container>
       </div>
-)}
+)
+}
 export default App;

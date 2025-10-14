@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardBody from 'react-bootstrap/esm/CardBody';
 import { BsThreeDotsVertical } from "react-icons/bs";
-import Detail from './ModelsComponent/Detail';
+
 import { Chart as ChartJS } from "chart.js/auto"
 import { Doughnut } from 'react-chartjs-2';
 import { HiMiniCalendarDateRange } from "react-icons/hi2";
