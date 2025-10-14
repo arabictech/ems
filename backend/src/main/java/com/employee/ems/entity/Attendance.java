@@ -18,12 +18,11 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long att_id;
 
-    // Only relation, no duplicate field
+    // Only relation, no dup
     @ManyToOne
     @JoinColumn(name = "emp_id", nullable = false)
     private Employees employees;
 
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate date;
     private String status;          //present,absent,leave
 }
