@@ -20,6 +20,7 @@ import Slider from "./Components/Slider";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Report from "./Components/Report";
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
                 <Route path='attendance' element={<Login />}/>
                 {/* <Route path='payroll' element={<Payroll />}/> */}
                 <Route path='analytics' element={<SalarySlip />}/>
-                {/* <Route path='report' element={<Profile />}/> */}
+                <Route path='report' element={<Report />}/>
                 <Route path='payroll' element={<TextControlsExample />}/>
                 <Route path='employee' element={<EmployeeCard />}/>
                 <Route path='profile/:id' element={<Profile />}/>
