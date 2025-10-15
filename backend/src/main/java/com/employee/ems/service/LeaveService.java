@@ -70,11 +70,13 @@ public class LeaveService {
     public void delAllLeaves() {
         leaveRepo.deleteAll();
     }
-    public void DelLeaveById(long empid) {
-        if (!leaveRepo.existsById(empid)) {
-            throw new RuntimeException("Employee not found with ID: " + empid);
+
+
+    public void deleteLeaveById(long leaveId) {
+        if(!leaveRepo.existsById(leaveId)){
+            throw  new RuntimeException("Employee not found with ID: " + leaveId);
         }
-        leaveRepo.deleteById(empid);
+        leaveRepo.deleteById(leaveId);
     }
 }
 

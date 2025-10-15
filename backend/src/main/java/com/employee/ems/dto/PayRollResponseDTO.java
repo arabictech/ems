@@ -20,6 +20,4 @@ public class PayRollResponseDto {
     private double deduction;
     private double net_salary;
     private PayRollEmployeeDto payroll_employee;
-
-
 }

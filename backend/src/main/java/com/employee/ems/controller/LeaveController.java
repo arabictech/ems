@@ -36,9 +36,11 @@ public List<LeaveResponseDto> getLeavesById(@PathVariable long emp_Id){
          leaveService.delAllLeaves();
          return  "Deleted All Leaves";
 }
-@DeleteMapping("/{empid}")
-    public  String  delLeaveByEmpId(@PathVariable long empid){
-        leaveService.DelLeaveById(empid);
-        return  "Deleted";
-}
+
+    @DeleteMapping("/{leaveId}")
+    public String deleteLeaveById(@PathVariable long leaveId) {
+        leaveService.deleteLeaveById(leaveId);
+        return "Leave deleted successfully!";
+    }
+
 }
