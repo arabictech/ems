@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { SiTicktick } from "react-icons/si";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Button from 'react-bootstrap/Button';
 import { FaEdit } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
-import MyVerticallyCenteredModal from './ModelsComponent/MyVerticallyCenteredModal';
+import MyVerticallyCenteredModal from '../MyVerticallyCenteredModal';
 import { IoIosTimer } from "react-icons/io";
-import AdvancedExample from './ModelsComponent/ReactBPagination';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Attendance = () => {
 
-    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+      const [startDate, setStartDate] = useState(new Date());
 
     const employeeData = [
         { employeeName: "Ankit"},
@@ -27,6 +28,7 @@ const Attendance = () => {
         <div className="main-content text-bold" >
             <div className='d-flex justify-content-between mb-4' >
                 <h3 className="fw-semibold" >Attendance (Admin)</h3>
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                 <div className='d-flex gap-2' >
                     <Button className='btn1 d-flex gap-2 align-items-center' onClick={() => setModalShow(true)} ><FaEdit size={20} />Edit Attendance</Button>
                     <MyVerticallyCenteredModal
@@ -68,7 +70,6 @@ const Attendance = () => {
                             })
                         }
                     </tbody>
-                    {/* <AdvancedExample /> */}
                 </Table>
             </div>
         </div>

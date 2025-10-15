@@ -34,7 +34,50 @@ function Header() {
 
   return (
     <>
-      <Container fluid className='position-fixed '>
+
+      <Navbar expand="lg " className="nav border-bottom ">
+                <Container fluid className='p-0'>
+                  <Form className="d-flex bg-body-secondary p-1 rounded-3 ps-0">
+                    <Form.Control
+                      type="search"
+                      placeholder='Search'
+                      className="me-2 bg-transparent border-0"
+                      aria-label="Search"
+                    />
+                    <Button variant="" className='fs-5'><FaSearch /></Button>
+                  </Form>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto fs-3 d-flex flex-row justify-content-center align-items-center">
+                      <Nav.Link href="#home" className='nav-icon'><IoMdNotifications /></Nav.Link>
+
+                      <Nav.Link href="#home" className='nav-icon'>
+                        <Dropdown align="end">
+                          <Dropdown.Toggle as="div" id="user-dropdown" className="no-caret bg-transparent ">
+                            <TbUserCircle style={{ fontSize: "35px" }} />
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu className='dropmenu p-4 shadow-lg'>
+                            <h2 className='fw-bold'>Naresh Sirvi</h2>
+                            <p ><IoIosMail /> naresh@gmail.com</p>
+                            <Dropdown.Divider />
+                            <Dropdown.Item href="#/profile" className='mb-3 p-0 fs-5 d-flex align-items-center gap-4'><LuClipboardList /> My Task</Dropdown.Item>
+                            <Dropdown.Item href="#/profile" className='mb-3 p-0 fs-5 d-flex align-items-center gap-4'><FaUser /> Profile</Dropdown.Item>
+                            <Dropdown.Item href="#/settings" className='mb-3 p-0 fs-5 d-flex align-items-center gap-4'><IoMdSettings /> Settings</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item href="#/logout" className='p-0 fs-5 d-flex align-items-center gap-4'><LuLogOut /> Logout</Dropdown.Item>
+                          </Dropdown.Menu>
+
+                        </Dropdown>
+                      </Nav.Link>
+
+                      <Nav.Link href="#link" className='nav-icon'><LuLogOut /></Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+
+      {/* <Container fluid className='position-fixed '>
         <div className=''><HiBars3CenterLeft onClick={handleShow} className=' border border-2 rounded-2 my-3 d-lg-none' style={{fontSize:'33px'}}/></div>
         <Row>
           <Col lg={3} md={3} >
@@ -48,15 +91,7 @@ function Header() {
                 
                 <NavLink to='employee' className='nav-link menu sub'><span className='d-flex gap-3 align-items-center' > 
                   <IoPersonSharp /> Employees</span> <TiArrowSortedDown />
-                  {/* <div className='sidenav d-flex flex-column'>
-                      
-                        <NavLink className='nav-link menu' to='emp1' >hello</NavLink>
-                        <NavLink className='nav-link menu' to='emp2' >hello</NavLink>
-                        <NavLink className='nav-link menu' to='emp3' >hello</NavLink>
-                        <NavLink className='nav-link menu' to='emp4' >hello</NavLink>
-                        <NavLink className='nav-link menu' to='emp5' >hello</NavLink>
-                      
-                  </div> */}
+                 
                 </NavLink>
                 
 
@@ -145,7 +180,7 @@ function Header() {
             </div>
         </div>
         </Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas> */}
     </>
   )
 }

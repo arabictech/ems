@@ -15,7 +15,8 @@ import Image from 'react-bootstrap/Image';
 import toast, { Toaster } from "react-hot-toast";
 import Modal from 'react-bootstrap/Modal';
 import { Link} from "react-router-dom";
-
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const EmployeeCard = () => {
 
@@ -36,7 +37,7 @@ const EmployeeCard = () => {
 
     useEffect(() => {
         fetchEmployee()
-    }, [])
+    },[])
 
     const handledelete = async (del) => {
         try {
@@ -51,20 +52,20 @@ const EmployeeCard = () => {
 
     return (
         <div className='main-content'>
-            <div className='d-flex justify-content-between'>
+            <div className='d-lg-flex justify-content-between'>
                 <h3 className='fw-bold'>Employees Details</h3>
                 <div className='d-flex gap-2'>
                     <AddEmployeeForm
                         show={modalShow}
                         onHide={() => setModalShow(false)}
+                        onUpdate={fetchEmployee} 
                     />
+                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} buttonClick={() => {setModalShow(true); }} />
                 </div>
             </div>
-            <hr />
-            <div className='card-container'>
+            <div className='card-container bg-transparent p-0'>
                 <Row>
                     <div className="d-flex gap-3 justify-content-end mb-4">
-                    <CommonButton classData={'btn1 align-items-center d-flex'} icon={<FaPlus />} variant={'primary'} title={"Add Employee"} buttonClick={() => setModalShow(true)} />
                     </div>
                     {
                         formdata?.map((ele,index) => {
@@ -76,14 +77,14 @@ const EmployeeCard = () => {
                                                 <div className=' d-lg-flex justify-content-between'>
                                                     <Col sm={3} className='d-flex-column'>
                                                         <div className='d-flex justify-content-center align-items-center gap-3 flex-column'>
-                                                            {ele.gender === 'Male' ? <Image className="profile-image" src={require('../images/male.png')} fluid /> : <Image className="profile-image" src={require('../images/female.jpg')} fluid />}
+                                                            {ele.gender === 'male' ? <Image className="profile-image" src={require('../images/male.png')} fluid /> : <Image className="profile-image" src={require('../images/female.jpg')} fluid />}
 
                                                         <span className="d-flex align-items-center gap-2 text-center"><FaIdCardAlt />: {ele.emp_id}</span>
                                                         
                                                         <div className='gap-3 d-flex justify-content-center '>
-                                                            <FaClipboardList />
-                                                            <FaStar />
-                                                            <BiSolidReport />
+                                                            <FaClipboardList className="text-info"/>
+                                                            <FaStar className="text-warning"/>
+                                                            <BiSolidReport className="text-warning-emphasis"/>
                                                         </div>
                                                         </div>
                                                     </Col>
@@ -91,17 +92,32 @@ const EmployeeCard = () => {
                                                     
                                                     <Col sm={9} >
                                                         <div className='fw-bold fs-3'>{ele.first_name} {ele.last_name}</div>
+                                                        
+                                                        <div className="d-flex gap-2">
+                                                        <Button style={{ backgroundColor: '#e5daf7', color: 'black', border: 'none', fontSize: '12px',marginTop:'10px'}}>{ele.department}</Button>
                                                           <Button style={{ backgroundColor: '#e5daf7', color: 'black', border: 'none', fontSize: '12px',marginTop:'10px'}}>{ele.designation}</Button>
+                                                        </div>
+
                                                         <hr />
+
                                                         <div className="d-flex flex-column small">
                                                             <span><FaPhone /> {ele.phone}</span>
                                                             <span><MdEmail /> {ele.email}</span>
                                                         </div>
                                                         
                                                         <div className='d-flex mt-3 gap-2 '>
-                                                            <Link to={`/profile/${ele.emp_id}`}><Button className=" rounded-5" variant="primary" ><CgProfile /></Button></Link>
-                                                            <Button className=" rounded-5" variant="warning" onClick={()=>{setModalShow(true); sessionStorage.setItem('edit',JSON.stringify(ele));}}><FaEdit /></Button>
-                                                            <Button className=" rounded-5" variant="danger" onClick={()=>{handleShow(); setrecdel(ele.emp_id)}}><MdDeleteForever /></Button>
+                                                            <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-delete">Profile</Tooltip>}>
+                                                                <Link to={`/profile/${ele.emp_id}`}><Button className=" rounded-5" variant="primary" ><CgProfile /></Button></Link>
+                                                            </OverlayTrigger>
+
+                                                            <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-delete">Edit Record</Tooltip>}>
+                                                                <Button className=" rounded-5" variant="warning" onClick={()=>{setModalShow(true); sessionStorage.setItem('edit',JSON.stringify(ele));}}><FaEdit /></Button>
+                                                            </OverlayTrigger>
+
+                                                            <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-delete">Delete Record</Tooltip>}>
+                                                                <Button className=" rounded-5" variant="danger" onClick={()=>{handleShow(); setrecdel(ele.emp_id)}}><MdDeleteForever /></Button>
+                                                            </OverlayTrigger>
+                                                            
                                                         </div>
                                                     </Col>
 

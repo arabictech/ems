@@ -16,14 +16,13 @@ let validate = yup.object({
     phone: yup.string().required("Contact number is required!").matches(/^[6-9]{1}[0-9]{9}$/, "please enter valid number!"),
     department: yup.string().required("Department is required!"),
     designation: yup.string().required("Designation is required!"),
-    salary: yup.string().required("Salary is required!"),
+    salary: yup.number('Salary must be a number').required("Salary is required!"),
     join_date: yup.string().required("Joining Date is required!"),
 })
 
 const AddEmployeeForm = (props) => {
 
     let inpFields = {
-        emp_id:'',
         first_name: "",
         last_name: "",
         email: "",
@@ -43,11 +42,13 @@ const AddEmployeeForm = (props) => {
             if(values.emp_id){
                 try {
                     await axios.put(`http://localhost:8080/api/employees/${values.emp_id}`,values)
-                    resetForm();
                     toast.success('Employee Update Successfully')
+                    resetForm();
                     setTimeout(()=>{
                         sessionStorage.removeItem('edit')
-                    })
+                        props.onHide();
+                    },800)
+                    props.onUpdate && props.onUpdate();
                 } catch (err) {
                     toast.error('Error while adding employee')
                     console.error("Error while adding employee:", err);
@@ -58,6 +59,8 @@ const AddEmployeeForm = (props) => {
                 const res = await axios.post("http://localhost:8080/api/employees", values);
                 toast.success('Employee Added Successfully')
                 resetForm();
+                props.onHide();
+                props.onUpdate && props.onUpdate();
                 console.log("Employee Added Successfully:", res.data);
                 } catch (err) {
                     toast.error('Error while adding employee')
@@ -74,7 +77,10 @@ const AddEmployeeForm = (props) => {
         if(editinfo){
             setValues(editinfo)
         }
-    },[])
+        else{
+            setValues('')
+        }
+    },[props.show])
     return (
         <Modal
             {...props}
@@ -82,7 +88,7 @@ const AddEmployeeForm = (props) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton onClick={()=>{sessionStorage.removeItem('edit')}}>
+            <Modal.Header closeButton onClick={()=>{sessionStorage.removeItem('edit');}}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {values.emp_id ? 'Edit Employee' : 'Add Employee'}
                 </Modal.Title>
@@ -125,8 +131,8 @@ const AddEmployeeForm = (props) => {
                             <div className='d-flex' >
                                 <Form.Label>Gender : </Form.Label>
                             </div>
-                            <Form.Check type="radio" label="Male" value="male" id='male' name='gender' onChange={handleChange} onBlur={handleBlur}></Form.Check>
-                            <Form.Check type="radio" label="Female" value="female" id="female" name='gender' onChange={handleChange} onBlur={handleBlur}></Form.Check>
+                            <Form.Check type="radio" label="Male" value="male" id='male' name='gender' onChange={handleChange} onBlur={handleBlur}  checked={values.gender === "male"} ></Form.Check>
+                            <Form.Check type="radio" label="Female" value="female" id="female" name='gender' onChange={handleChange} onBlur={handleBlur}  checked={values.gender === "female"} ></Form.Check>
                         </Form.Group>
                     </Row>
                     <Row className='mb-4'>
